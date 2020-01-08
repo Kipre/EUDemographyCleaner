@@ -51,7 +51,13 @@ Un designer UX n'est certainement pas a l'abri de ce biais et doit veiller a app
 Le biais de confirmation pourrait intervenier notammant dans la phase de test du produit. 
 Lors de cette phase les developpeurs vont evaluer la performance de leurs implementations et confronter des alternatives pour faire evoluer le produit final vers une solution optimale.
 Une vigilance elevee est donc necessaire afin d'eviter de rentrer dans des solutions biaisees.
- 
+
+D'autre part, cette phase de test est particulierement vulnerable aux biais cognitifs des testeurs notamment a travers de biais comme: 
+ - l'_effet experimentateur_ (quand l'experimentateur influe l'experience);
+ - l'_effet de desirabilite sociale_ (on a tendance a faire les choix qui nous mettent en valeur a l'egard des autres au lieu de choisir ce que nous voulons reelement);
+ - l'_effet Hawthorne_ (personne a tendance a agir differement si elle est observee ou non);
+ - le _biais de formulation_ (la formalution d'une question influe sur la reponse);
+ - le _biais d'echantillonage_ (une edude est valable uniquement sur la population ou elle a ete conduite)
 
 ## Bibliographie
 
