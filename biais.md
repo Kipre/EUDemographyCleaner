@@ -25,7 +25,7 @@ Cet effet, aussi connu sous le nom de l'_effet de surconfiance_ caractérise le 
 Il fut introduit par Justin Kruger et David Dunning dans [2], ils ont mis en évidence cet effet grâce à de nombreuses expériences.
 Le graphique ci-dessous représente le concept.
 
-![Effet Dunning-Kruger](dunningkruger.png)
+[//]: # (![Effet Dunning-Kruger](dunningkruger.png))
 
 La leçon à tirer de ce biais cognitif est plus générale que pour une équipe de designers UX et pourrait être utile à n'importe quelle entité de collaboration mais elle stipule que des personnes sous-compétentes peuvent etre très nefastes pour un projet. 
 Une autre implication de l'effet Dunning-Kruger est que les experts ont tendance à grandement sous estimer leurs compétences ce qui peut les amener à la frustration quand d'autres personnes n'arrivent pas à reproduire leurs actions. 
@@ -39,7 +39,7 @@ Le nom de ce biais vient du géant Suédois dont le business model est presque e
 En effet, malgré les prix plutôt attractifs de l'enseigne, de nombreux spécialistes attribuent le succès d'IKEA a ce biais. 
 Les clients s'approprient leurs meubles lors de l'assemblage du kit, et ressentent davantage de plaisir a la fin qu'après un simple achat de meuble.
 
-![Effet IKEA](ikea.png)
+[//]: # (![Effet IKEA](ikea.png))
 
 Les implications de cet effet sont multiples pour un designer UX, d'un côté, lors de la conception, un designer doit toujours prendre du recul sur le résultat et continuer à garder son but final en tête.
 
