@@ -38,12 +38,20 @@ Les clients s'approprient leurs meubles lors de l'assemblage du kit, et ressente
 
 ![Effet IKEA](ikea.png)
 
-Les implications de cet effet sont multiples pour un designer UX, mais la principale reste que lors de la conception un designer doit toujours prendre du recul sur le resultat et continuer a garder son but final en tete.
+Les implications de cet effet sont multiples pour un designer UX, d'un cote, lors de la conception, un designer doit toujours prendre du recul sur le resultat et continuer a garder son but final en tete.
 
 D'un autre cote, l'effet IKEA peut etre un levier tres puissant pour produire des logitiels avec une haute satisfaction de l'utilisateur en ajoutant un niveau de customisation adequat. 
 Cette customisation peut porter autant sur des elements d'esthetique (fonds d'ecran, theme, couleurs) que sur des points organisationnels (emplacement des icones, selection de fonctionnalites cles).
-Des exemples de telles utilisations qui permettent una appropriation de l'espace sont pas tres nombreux mais on peut penser a l'ecran d'accueil Windows, a la page "Home" de Google Chrome et ainsi de suite.  
+Des exemples de telles utilisations qui permettent una appropriation de l'espace sont pas tres nombreux mais on peut penser a l'ecran d'accueil Windows, a la page "Home" de Google Chrome et ainsi de suite. 
 
+## Le biais de confirmation
+
+Le _biais de confirmation_ est un peu plus general et suggere que une personne cherche inconsciament a confirmer les convictions qu'elle a deja, ce biais est particulierement dangereux pour les chercheurs et des methodologies tres sophistiquees cherchent a pallier cet effet.
+Un designer UX n'est certainement pas a l'abri de ce biais et doit veiller a appliquer toutes le methodes necessaires pour garder l'objectivite dans son travail.
+Le biais de confirmation pourrait intervenier notammant dans la phase de test du produit. 
+Lors de cette phase les developpeurs vont evaluer la performance de leurs implementations et confronter des alternatives pour faire evoluer le produit final vers une solution optimale.
+Une vigilance elevee est donc necessaire afin d'eviter de rentrer dans des solutions biaisees.
+ 
 
 ## Bibliographie
 
