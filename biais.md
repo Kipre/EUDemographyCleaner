@@ -23,7 +23,6 @@ Nous allons donc nous pencher sur quelques uns des biais cognitifs qui ont un im
 
 Cet effet, aussi connu sous le nom de l'_effet de surconfiance_ caractérise le fait que les personnes peu compétentes dans un domaine ont tendance a grandement sur-estimer leurs expertise alors que les experts ont la tendance inverse. 
 Il fut introduit par Justin Kruger et David Dunning dans [2], ils ont mis en évidence cet effet grâce à de nombreuses expériences.
-Le graphique ci-dessous représente le concept.
 
 [//]: # (![Effet Dunning-Kruger](dunningkruger.png))
 
