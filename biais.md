@@ -40,6 +40,10 @@ Les clients s'approprient leurs meubles lors de l'assemblage du kit, et ressente
 
 Les implications de cet effet sont multiples pour un designer UX, mais la principale reste que lors de la conception un designer doit toujours prendre du recul sur le resultat et continuer a garder son but final en tete.
 
+D'un autre cote, l'effet IKEA peut etre un levier tres puissant pour produire des logitiels avec une haute satisfaction de l'utilisateur en ajoutant un niveau de customisation adequat. 
+Cette customisation peut porter autant sur des elements d'esthetique (fonds d'ecran, theme, couleurs) que sur des points organisationnels (emplacement des icones, selection de fonctionnalites cles).
+Des exemples de telles utilisations qui permettent una appropriation de l'espace sont pas tres nombreux mais on peut penser a l'ecran d'accueil Windows, a la page "Home" de Google Chrome et ainsi de suite.  
+
 
 ## Bibliographie
 
