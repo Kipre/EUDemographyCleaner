@@ -13,7 +13,7 @@ Ces deux chercheurs ont identifié un certain nombre de biais et ont posé les b
 Aujourd'hui beaucoup de biais supplementaires ont ete etudies par d'autres scientifiques et les biais sont étroitement étudiés par des chercheurs d'autres disciplines. 
 Par exemple les chercheurs du marketing et de la finance s'y intéressent car ces biais ont le potentiel d'aider à exploiter les erreurs de jugement humain pour faire du profit. 
 
-Pour rendre l'expérience homme-machine plus humaines les développeurs doivent prendre en compte les spécificités de l'être humain, notamment à travers ses biais cognitifs pour finalement rendre l'interaction plus intuitive.
+Pour rendre l'expérience homme-machine plus humaine les développeurs doivent prendre en compte les spécificités de l'être humain, notamment à travers ses biais cognitifs pour finalement rendre l'interaction plus intuitive.
 Nous allons donc nous pencher sur quelques uns des biais cognitifs qui ont un impact direct sur l'expérience utilisateur, sur le développement de cette dernière et voir quelles sont les conséquences des ces biais.
 
 ## L'effet Dunning-Kruger
@@ -24,9 +24,9 @@ Le graphique ci-dessous représente le concept.
 
 ![Effet Dunning-Kruger](dunningkruger.png)
 
-La leçon à tirer de ce biais cognitif est plus générale que pour une équipe de designers UX et pourrait être utile à n'importe quelle entité de collaboration mais elle stipule que des personnes sous-compétentes peuvent etre tres nefastes pour un projet. 
+La leçon à tirer de ce biais cognitif est plus générale que pour une équipe de designers UX et pourrait être utile à n'importe quelle entité de collaboration mais elle stipule que des personnes sous-compétentes peuvent etre très nefastes pour un projet. 
 Une autre implication de l'effet Dunning-Kruger est que les experts ont tendance à grandement sous estimer leurs compétences ce qui peut les amener à la frustration quand d'autres personnes n'arrivent pas à reproduire leurs actions. 
-C'est un comportement qui peut assez souvent être observé chez les enseignants chercheurs.
+C'est un comportement qui peut assez souvent être observé chez les enseignants-chercheurs.
 
 ## L'effet IKEA
 
@@ -58,6 +58,12 @@ D'autre part, cette phase de test est particulierement vulnerable aux biais cogn
  - l'_effet Hawthorne_ (personne a tendance à agir différemment si elle est observée ou non);
  - le _biais de formulation_ (la formulation d'une question influe sur la réponse);
  - le _biais d'échantillonnage_ (une étude est valable uniquement sur la population ou elle a été conduite).
+
+## Conclusion
+
+Nous avons vu un certain nombre de biais qui sont susceptibles d'influencer le designer UX ainsi que son travail et son entourage. 
+Nous avons aussi observé que l'intersection des deux domaines des biais cognitifs et de l'expérience utilisateur reste une direction peu étudiée par les chercheurs malgre son interet evident.
+Vu le nombre constamment croissant de machines dans notre quotidien il est évident que une étude psycologique de notre interaction avec ces dernières est un enjeu important.
 
 ## Bibliographie
 
