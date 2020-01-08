@@ -22,7 +22,7 @@ Cet effet, aussi connu sous le nom de l'_effet de surconfiance_ caracterise le f
 Il fut introduit par Justin Kruger et David Dunning dans [2], ils ont mis en evidence cet effet grace a de nombreuses experiences.
 Le graphique ci-dessous represente le concept.
 
-![Effet Dunning-Kruger](https://fr.wikipedia.org/wiki/Effet_Dunning-Kruger#/media/Fichier:2019-06-19_effet_dunning_kruger.png)
+![Effet Dunning-Kruger](https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/2019-06-19_effet_dunning_kruger.png/1200px-2019-06-19_effet_dunning_kruger.png)
 
 La lecon a tirer de ce biais cognitif est plus generale que pour une equipe de designers UX et pourrait etre utile a n'importe quelle entite de collaboration mais elle stiplule que des personnes sous-competentes peuvent etre tres nefastes pour un projet. 
 Une autre implication de l'effet Dunning-Kruger est que les experts ont tendance a grandement sous estimer leurs competences ce qui peut les amener a la frustration quand d'autres personnes n'arrivent pas a reproduire leurs actions. 
