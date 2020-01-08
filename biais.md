@@ -1,4 +1,9 @@
-# Les biais cognitifs dans l'UX
+
+---
+title: Les biais cognitifs dans l'UX
+author: Cyprien NEVEROV
+date: Janvier 2020
+---
 
 J'ai décidé de travailler sur le thème des biais cognitifs car j'ai commencé, il y a quelques années, à lire le livre de Daniel Kahneman sur les biais cognitifs qui lui a valu un prix Nobel. 
 D'autre part la perception biaisée que nous avons de la réalité me paraît évidente et surtout importante dans la mesure où elle nous amène parfois à avoir des comportements étranges d'un point de vue objectif. 
