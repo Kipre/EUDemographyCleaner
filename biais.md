@@ -7,11 +7,20 @@ Ce léger changement de thème devrait nous permettre de voir des choses plus am
 
 ## Introduction
 
-Un _biais cognitif_ est une erreur systematique de reflection qui amene un individu a avoir un jugement errone ou prendre des mauvaises descisions.
+Un _biais cognitif_ est une erreur systematique de reflection qui amene un individu a avoir un jugement errone ou prendre des mauvaises descisions [1].
 Ce terme fut introduit par Daniel Kahneman et Adam Tversky en 1973 dans leur artile dans Science et a fonde tout un domaine de la psycologie. 
 Ces deux chercheurs ont identifie un certain nombre de biais et ont pose les bases de cette branche de la science du comportement.
 Aujourd'hui beaucoup de biais supplementaires ont ete etudies par d'autres scientifiques et les biais sont etroitement etudies par des chercheurs d'autres disciplines. 
 Par exemple les chercheurs du marketting et de la finance s'y interessent car ces biais ont le potentiel d'aider a exploiter les erreurs de jugement humain pour faire du profit. 
 
 Pour rendre l'experience homme-machine plus humaines les developpeurs doivent prendre en compte les specificites de l'etre humain, notamment a travers ses biais cognitifs pour finalement rendre l'interaction plus intuitive.
-Nous allons donc nous pencher sur quelques uns des biais cognitifs qui ont un impact direct sur l'experience utilisateur et voir quelles sont les consequences des ces biais.
+Nous allons donc nous pencher sur quelques uns des biais cognitifs qui ont un impact direct sur l'experience utilisateur et voir quelles sont les consequences des ces biais
+
+## L'effet Dunning-Kruger
+
+Cet effet, aussi connu sous le nom de l'_effet de surconfiance_ caracterise le fait que les personnes peu competentes dans un domaine ont tendance a grandement sur-estimer leurs expertise alors que les experts ont la tendance inverse. Il fut introduit par Justin Kruger et David Dunning dans [2]  
+
+## Bibliographie
+
+1. Kahneman 2012, p. 135 à 238 
+2. Justin Kruger et David Dunning, « Unskilled and Unaware of It: How Difficulties in Recognizing One's Own Incompetence Lead to Inflated Self-Assessments », Journal of Personality and Social Psychology, vol. 77, no 6,‎ décembre 1999, p. 1121–34
