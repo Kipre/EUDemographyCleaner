@@ -35,6 +35,9 @@ Il a ete etudie par Michael Norton, Daniel Mochon et Dan Ariely a travers 3 étu
 Le nom de ce biais vient du geant Suedois dont le business model est presque entierement base sur le biais. 
 En effet, malgre les prix plus-tot attractifs de l'enseigne, de nombreux specialistes attribuent le succes de IKEA a ce biais. 
 Les clients s'approprient leurs meubles lors de l'assemblage du kit, et ressentent d'avantage de plaisir a la fin qu'apres un simple achat de meuble.
+
+![Effet IKEA](ikea.png)
+
 Les implications de cet effet sont multiples pour un designer UX, mais la principale reste que lors de la conception un designer doit toujours prendre du recul sur le resultat et continuer a garder son but final en tete.
 
 
