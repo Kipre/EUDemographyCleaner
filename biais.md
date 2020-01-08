@@ -65,7 +65,7 @@ D'autre part, cette phase de test est particulierement vulnerable aux biais cogn
 
 Nous avons vu un certain nombre de biais qui sont susceptibles d'influencer le designer UX ainsi que son travail et son entourage. 
 Nous avons aussi observé que l'intersection des deux domaines des biais cognitifs et de l'expérience utilisateur reste une direction peu étudiée par les chercheurs malgre son interet evident.
-Vu le nombre constamment croissant de machines dans notre quotidien il est évident que une étude psycologique de notre interaction avec ces dernières est un enjeu important.
+Vu le nombre constamment croissant de machines dans notre quotidien il est évident que une étude psychologique de notre interaction avec ces dernières est un enjeu important.
 
 ## Bibliographie
 
