@@ -1,4 +1,4 @@
-# Les biais cognitifs dans l'UX'
+# Les biais cognitifs dans l'UX
 
 J'ai décidé de travailler sur le thème des biais congnitifs car j'ai commencé à lire le livre de Daniel Kahneman sur les biais cognitifs qui lui a valu un prix Nobel. 
 D'autre part la perception biaisée que nous avons de la réalité me paraît évidente et surtout importante dans la mesure où elle nous amène parfois a avoir des comportements etranges d'un poit de vue objectif. 
@@ -18,7 +18,15 @@ Nous allons donc nous pencher sur quelques uns des biais cognitifs qui ont un im
 
 ## L'effet Dunning-Kruger
 
-Cet effet, aussi connu sous le nom de l'_effet de surconfiance_ caracterise le fait que les personnes peu competentes dans un domaine ont tendance a grandement sur-estimer leurs expertise alors que les experts ont la tendance inverse. Il fut introduit par Justin Kruger et David Dunning dans [2]  
+Cet effet, aussi connu sous le nom de l'_effet de surconfiance_ caracterise le fait que les personnes peu competentes dans un domaine ont tendance a grandement sur-estimer leurs expertise alors que les experts ont la tendance inverse. 
+Il fut introduit par Justin Kruger et David Dunning dans [2], ils ont mis en evidence cet effet grace a de nombreuses experiences.
+Le graphique ci-dessous represente le concept.
+
+![Effet Dunning-Kruger](https://fr.wikipedia.org/wiki/Effet_Dunning-Kruger#/media/Fichier:2019-06-19_effet_dunning_kruger.png)
+
+La lecon a tirer de ce biais cognitif est plus generale que pour une equipe de designers UX et pourrait etre utile a n'importe quelle entite de collaboration mais elle stiplule que des personnes sous-competentes peuvent etre tres nefastes pour un projet. 
+Une autre implication de l'effet Dunning-Kruger est que les experts ont tendance a grandement sous estimer leurs competences ce qui peut les amener a la frustration quand d'autres personnes n'arrivent pas a reproduire leurs actions. 
+
 
 ## Bibliographie
 
