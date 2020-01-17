@@ -23,8 +23,10 @@ Basic components of a dialog system are:
 3. dialogue management (DM);
 4. natural language generation (NLG).
 
+![Figure 1: Dialogue system schema [1]](dialogue.png)
+
 ## Bibliography
 
-1. [Deep Learning for Dialogue Systems](https://www.aclweb.org/anthology/P17-5004.pdf). Chen, Yun-Nung and Celikyilmaz, Asli and Hakkani-Tur, Dilek, _Proceedings of the 27th International Conference on Computational Linguistics: Tutorial Abstracts"_. 2018, Santa Fe, New Mexico, USA, Association for Computational Linguistics.
+1. [Deep Learning for Dialogue Systems](https://www.aclweb.org/anthology/P17-5004.pdf). Chen, Yun-Nung and Celikyilmaz, Asli and Hakkani-Tur, Dilek, _Proceedings of the 27th International Conference on Computational Linguistics: Tutorial Abstracts_. 2018, Santa Fe, New Mexico, USA, Association for Computational Linguistics.
 
 https://arxiv.org/pdf/1711.01731.pdf
