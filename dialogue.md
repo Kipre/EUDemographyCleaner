@@ -23,6 +23,8 @@ Basic components of a dialog system are:
 3. dialogue management (DM);
 4. natural language generation (NLG).
 
+![](dialogue.png)
+
 ## Evaluation
 
 Evaluating the quality of the generated response is an important aspect of dialogue response generation systems. 
