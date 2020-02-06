@@ -985,12 +985,20 @@
     </SubDataPropertyOf>
     <DataPropertyDomain>
         <DataProperty IRI="http://webprotege.stanford.edu/R912pqgDeyWx2HtnWYj0kdC"/>
+        <Class IRI="#Composant"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="http://webprotege.stanford.edu/R912pqgDeyWx2HtnWYj0kdC"/>
         <Class IRI="#Ordinateur"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="http://webprotege.stanford.edu/R9mGTBnBmZDjDscXRjGwa4j"/>
         <Class IRI="#Utilisateur"/>
     </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="http://webprotege.stanford.edu/R912pqgDeyWx2HtnWYj0kdC"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
+    </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="http://webprotege.stanford.edu/R912pqgDeyWx2HtnWYj0kdC"/>
         <Datatype abbreviatedIRI="xsd:int"/>
