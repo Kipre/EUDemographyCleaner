@@ -123,10 +123,16 @@
         <DataProperty IRI="http://webprotege.stanford.edu/R8Ro2d7k1wEKwg1JWn4Jen7"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="http://webprotege.stanford.edu/R8v00Dx8wC1FQ2MmyHwgK5E"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="http://webprotege.stanford.edu/R912pqgDeyWx2HtnWYj0kdC"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="http://webprotege.stanford.edu/R9WNkbbrR4LxSNEarVgnylf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="http://webprotege.stanford.edu/R9mGTBnBmZDjDscXRjGwa4j"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="http://webprotege.stanford.edu/RB2Z4gLX7bXxdGjyTOJTu6r"/>
@@ -153,16 +159,52 @@
         <NamedIndividual IRI="http://webprotege.stanford.edu/R71uWhf9pVlpolpzZhKnxDV"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7JpXL3KUdW0BWVfP7gQ1g"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="http://webprotege.stanford.edu/R7ejXK0pMyozXkSO5cVRbBX"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7mQI3bn3RatcbTl5ggs1wu"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8bko3G8nQwOuPPXyWz2GkD"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="http://webprotege.stanford.edu/R8fD3Vnyy3ym4sxczoq1TIC"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://webprotege.stanford.edu/RBUuXHV6h3WOIojgQV5WmOw"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8q5qBNc3hczmBYWsROLuu7"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8qvgp6Xsbu9Sf5K5xIuAgg"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8sPdyBTRSir4a5gd6Ooj8Y"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R94hYq5cDZ4AhfpEDb04oAU"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R9KUqfEO5CyPoVRCor06osf"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R9gX1GHyWm4jOq51qCw233k"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R9xFmBaCPcQpdpA14Gw5GUH"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RBNdZGgQWs9hoodtijPzxVZ"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCB27jU36egXywHSYlddoKN"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="http://webprotege.stanford.edu/RCUqDOjzOfn4sPMgPB1zbAB"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RDonLwgGyJMBGO5iRbnrpil"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="http://webprotege.stanford.edu/RDsUKxdU7vKECEao6rbD6EF"/>
@@ -171,10 +213,28 @@
         <NamedIndividual IRI="http://webprotege.stanford.edu/RN4KCmEPHLkWLOFJwIRjeU"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RTX9tEqHEZGzFeIk2bL6dn"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RW6B9RJV0ZYsDVFLV7K9TP"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RgdvJtDCtOdkgr6GirAZws"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RrXLNbH7HEKeVAYzyYQG5I"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="http://webprotege.stanford.edu/RvMptpYFxVpdsspgBI1ZVD"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="http://webprotege.stanford.edu/RwKd0oaxCczWJUnFwNnYm4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RyUyzJ5waGpsGOVyLrJRcy"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RyuUzhYqwl7iObqC1d6zC1"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#poopo"/>
@@ -276,19 +336,67 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="http://webprotege.stanford.edu/R8kB6Chnn9XuTCeBGZd6N5W"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7JpXL3KUdW0BWVfP7gQ1g"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://webprotege.stanford.edu/R8kB6Chnn9XuTCeBGZd6N5W"/>
         <NamedIndividual IRI="http://webprotege.stanford.edu/R7ejXK0pMyozXkSO5cVRbBX"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://webprotege.stanford.edu/R9ND7dLbQNb89EnkkP4tRmn"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7mQI3bn3RatcbTl5ggs1wu"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://webprotege.stanford.edu/R8kB6Chnn9XuTCeBGZd6N5W"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8bko3G8nQwOuPPXyWz2GkD"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="http://webprotege.stanford.edu/R8kB6Chnn9XuTCeBGZd6N5W"/>
         <NamedIndividual IRI="http://webprotege.stanford.edu/R8fD3Vnyy3ym4sxczoq1TIC"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Composant"/>
-        <NamedIndividual IRI="http://webprotege.stanford.edu/RBUuXHV6h3WOIojgQV5WmOw"/>
+        <Class IRI="#CPU"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8q5qBNc3hczmBYWsROLuu7"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://webprotege.stanford.edu/R7UYkKRPutR5VUKMTR8McEW"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8qvgp6Xsbu9Sf5K5xIuAgg"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://webprotege.stanford.edu/R9ND7dLbQNb89EnkkP4tRmn"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8sPdyBTRSir4a5gd6Ooj8Y"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://webprotege.stanford.edu/R8kB6Chnn9XuTCeBGZd6N5W"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R94hYq5cDZ4AhfpEDb04oAU"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CPU"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R9KUqfEO5CyPoVRCor06osf"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://webprotege.stanford.edu/R8kB6Chnn9XuTCeBGZd6N5W"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R9gX1GHyWm4jOq51qCw233k"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://webprotege.stanford.edu/R8kB6Chnn9XuTCeBGZd6N5W"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R9xFmBaCPcQpdpA14Gw5GUH"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Carte_Graphique"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RBNdZGgQWs9hoodtijPzxVZ"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://webprotege.stanford.edu/R9ND7dLbQNb89EnkkP4tRmn"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCB27jU36egXywHSYlddoKN"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="http://webprotege.stanford.edu/RBGrAbVpWaeYrBAlnbBuyUO"/>
         <NamedIndividual IRI="http://webprotege.stanford.edu/RCUqDOjzOfn4sPMgPB1zbAB"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Carte_Graphique"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RDonLwgGyJMBGO5iRbnrpil"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="http://webprotege.stanford.edu/RRdymF2Wwtd7Sfp35pR2Cy"/>
@@ -299,12 +407,32 @@
         <NamedIndividual IRI="http://webprotege.stanford.edu/RN4KCmEPHLkWLOFJwIRjeU"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Carte_Graphique"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RTX9tEqHEZGzFeIk2bL6dn"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://webprotege.stanford.edu/R8J6wPzD9scqnch9PhnRJQd"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RW6B9RJV0ZYsDVFLV7K9TP"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://webprotege.stanford.edu/R8kB6Chnn9XuTCeBGZd6N5W"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RgdvJtDCtOdkgr6GirAZws"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Carte_Graphique"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RrXLNbH7HEKeVAYzyYQG5I"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="http://webprotege.stanford.edu/RmCM2daxJWk2TRMWZjCEew"/>
         <NamedIndividual IRI="http://webprotege.stanford.edu/RvMptpYFxVpdsspgBI1ZVD"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="http://webprotege.stanford.edu/R8kB6Chnn9XuTCeBGZd6N5W"/>
         <NamedIndividual IRI="http://webprotege.stanford.edu/RwKd0oaxCczWJUnFwNnYm4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CPU"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RyUyzJ5waGpsGOVyLrJRcy"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="http://webprotege.stanford.edu/R7VSw3SZtebLstVGNEC1oXi"/>
@@ -323,6 +451,121 @@
         <ObjectProperty IRI="http://webprotege.stanford.edu/R9Vw5VniqL3mZkMiPYF69w7"/>
         <NamedIndividual IRI="http://webprotege.stanford.edu/R7ejXK0pMyozXkSO5cVRbBX"/>
         <NamedIndividual IRI="http://webprotege.stanford.edu/RN4KCmEPHLkWLOFJwIRjeU"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/R9WjBOr6BJXTWB7cOIJO91y"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7mQI3bn3RatcbTl5ggs1wu"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RvMptpYFxVpdsspgBI1ZVD"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/RDXcKydO13MVkpVk7cHlWRs"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7mQI3bn3RatcbTl5ggs1wu"/>
+        <NamedIndividual IRI="#qwerty"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/Reyf6coGZTiVyfnieenXLl"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7mQI3bn3RatcbTl5ggs1wu"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R9gX1GHyWm4jOq51qCw233k"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#contient"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7mQI3bn3RatcbTl5ggs1wu"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R9KUqfEO5CyPoVRCor06osf"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#contient"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7mQI3bn3RatcbTl5ggs1wu"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RTX9tEqHEZGzFeIk2bL6dn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/Reyf6coGZTiVyfnieenXLl"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8q5qBNc3hczmBYWsROLuu7"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RwKd0oaxCczWJUnFwNnYm4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/R9WjBOr6BJXTWB7cOIJO91y"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8qvgp6Xsbu9Sf5K5xIuAgg"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RvMptpYFxVpdsspgBI1ZVD"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/RDXcKydO13MVkpVk7cHlWRs"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8qvgp6Xsbu9Sf5K5xIuAgg"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCUqDOjzOfn4sPMgPB1zbAB"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/Reyf6coGZTiVyfnieenXLl"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8qvgp6Xsbu9Sf5K5xIuAgg"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R94hYq5cDZ4AhfpEDb04oAU"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#contient"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8qvgp6Xsbu9Sf5K5xIuAgg"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RyUyzJ5waGpsGOVyLrJRcy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/R9WjBOr6BJXTWB7cOIJO91y"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8sPdyBTRSir4a5gd6Ooj8Y"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RvMptpYFxVpdsspgBI1ZVD"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/RDXcKydO13MVkpVk7cHlWRs"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8sPdyBTRSir4a5gd6Ooj8Y"/>
+        <NamedIndividual IRI="#qwerty"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/Reyf6coGZTiVyfnieenXLl"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8sPdyBTRSir4a5gd6Ooj8Y"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RyuUzhYqwl7iObqC1d6zC1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#contient"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8sPdyBTRSir4a5gd6Ooj8Y"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8q5qBNc3hczmBYWsROLuu7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#contient"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8sPdyBTRSir4a5gd6Ooj8Y"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RBNdZGgQWs9hoodtijPzxVZ"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/Reyf6coGZTiVyfnieenXLl"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R9KUqfEO5CyPoVRCor06osf"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R9gX1GHyWm4jOq51qCw233k"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/Reyf6coGZTiVyfnieenXLl"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RBNdZGgQWs9hoodtijPzxVZ"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R9xFmBaCPcQpdpA14Gw5GUH"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/R9WjBOr6BJXTWB7cOIJO91y"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCB27jU36egXywHSYlddoKN"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R71uWhf9pVlpolpzZhKnxDV"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/RDXcKydO13MVkpVk7cHlWRs"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCB27jU36egXywHSYlddoKN"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCUqDOjzOfn4sPMgPB1zbAB"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/Reyf6coGZTiVyfnieenXLl"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCB27jU36egXywHSYlddoKN"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7JpXL3KUdW0BWVfP7gQ1g"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#contient"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCB27jU36egXywHSYlddoKN"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R9KUqfEO5CyPoVRCor06osf"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#contient"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCB27jU36egXywHSYlddoKN"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RDonLwgGyJMBGO5iRbnrpil"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/Reyf6coGZTiVyfnieenXLl"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RDonLwgGyJMBGO5iRbnrpil"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8bko3G8nQwOuPPXyWz2GkD"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://webprotege.stanford.edu/R8O40raYUfZ77aXgNU5K53h"/>
@@ -351,6 +594,41 @@
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://webprotege.stanford.edu/Reyf6coGZTiVyfnieenXLl"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RTX9tEqHEZGzFeIk2bL6dn"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R9xFmBaCPcQpdpA14Gw5GUH"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/R9WjBOr6BJXTWB7cOIJO91y"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RW6B9RJV0ZYsDVFLV7K9TP"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RvMptpYFxVpdsspgBI1ZVD"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/RDXcKydO13MVkpVk7cHlWRs"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RW6B9RJV0ZYsDVFLV7K9TP"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCUqDOjzOfn4sPMgPB1zbAB"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/Reyf6coGZTiVyfnieenXLl"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RW6B9RJV0ZYsDVFLV7K9TP"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RgdvJtDCtOdkgr6GirAZws"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#contient"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RW6B9RJV0ZYsDVFLV7K9TP"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RrXLNbH7HEKeVAYzyYQG5I"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#contient"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RW6B9RJV0ZYsDVFLV7K9TP"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RyUyzJ5waGpsGOVyLrJRcy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/Reyf6coGZTiVyfnieenXLl"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RrXLNbH7HEKeVAYzyYQG5I"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RwKd0oaxCczWJUnFwNnYm4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/Reyf6coGZTiVyfnieenXLl"/>
         <NamedIndividual IRI="http://webprotege.stanford.edu/RvMptpYFxVpdsspgBI1ZVD"/>
         <NamedIndividual IRI="http://webprotege.stanford.edu/R8fD3Vnyy3ym4sxczoq1TIC"/>
     </ObjectPropertyAssertion>
@@ -365,9 +643,144 @@
         <NamedIndividual IRI="http://webprotege.stanford.edu/RN4KCmEPHLkWLOFJwIRjeU"/>
     </ObjectPropertyAssertion>
     <DataPropertyAssertion>
-        <DataProperty IRI="#age"/>
-        <NamedIndividual IRI="http://webprotege.stanford.edu/RDsUKxdU7vKECEao6rbD6EF"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">43</Literal>
+        <DataProperty IRI="http://webprotege.stanford.edu/R8Ro2d7k1wEKwg1JWn4Jen7"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7mQI3bn3RatcbTl5ggs1wu"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">15</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/R9WNkbbrR4LxSNEarVgnylf"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7mQI3bn3RatcbTl5ggs1wu"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">16</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RB2Z4gLX7bXxdGjyTOJTu6r"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7mQI3bn3RatcbTl5ggs1wu"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">2.6</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RBIxEHEFr3xokpklHL6wNw1"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7mQI3bn3RatcbTl5ggs1wu"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">512</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RD19xHtVKGrEQJDcilBpo4G"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7mQI3bn3RatcbTl5ggs1wu"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">6</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RIJJUKPR42P4BJmmMwGGDX"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7mQI3bn3RatcbTl5ggs1wu"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1999</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RWSb8XMYgN4uGfmriYUnI1"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7mQI3bn3RatcbTl5ggs1wu"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2160</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/R8Ro2d7k1wEKwg1JWn4Jen7"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8qvgp6Xsbu9Sf5K5xIuAgg"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">24</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/R9WNkbbrR4LxSNEarVgnylf"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8qvgp6Xsbu9Sf5K5xIuAgg"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">8</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RB2Z4gLX7bXxdGjyTOJTu6r"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8qvgp6Xsbu9Sf5K5xIuAgg"/>
+        <Literal>2,1 GHz</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RBIxEHEFr3xokpklHL6wNw1"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8qvgp6Xsbu9Sf5K5xIuAgg"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">512</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RD19xHtVKGrEQJDcilBpo4G"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8qvgp6Xsbu9Sf5K5xIuAgg"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RIJJUKPR42P4BJmmMwGGDX"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8qvgp6Xsbu9Sf5K5xIuAgg"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">749</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RWSb8XMYgN4uGfmriYUnI1"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8qvgp6Xsbu9Sf5K5xIuAgg"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1080</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/R8Ro2d7k1wEKwg1JWn4Jen7"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8sPdyBTRSir4a5gd6Ooj8Y"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">15.6</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/R9WNkbbrR4LxSNEarVgnylf"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8sPdyBTRSir4a5gd6Ooj8Y"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">16</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RB2Z4gLX7bXxdGjyTOJTu6r"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8sPdyBTRSir4a5gd6Ooj8Y"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">2.2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RBIxEHEFr3xokpklHL6wNw1"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8sPdyBTRSir4a5gd6Ooj8Y"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">256</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RD19xHtVKGrEQJDcilBpo4G"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8sPdyBTRSir4a5gd6Ooj8Y"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">6</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RIJJUKPR42P4BJmmMwGGDX"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8sPdyBTRSir4a5gd6Ooj8Y"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2599</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RWSb8XMYgN4uGfmriYUnI1"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8sPdyBTRSir4a5gd6Ooj8Y"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1080</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/R8Ro2d7k1wEKwg1JWn4Jen7"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCB27jU36egXywHSYlddoKN"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">16</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/R9WNkbbrR4LxSNEarVgnylf"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCB27jU36egXywHSYlddoKN"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">16</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RB2Z4gLX7bXxdGjyTOJTu6r"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCB27jU36egXywHSYlddoKN"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">2.6</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RBIxEHEFr3xokpklHL6wNw1"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCB27jU36egXywHSYlddoKN"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">512</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RD19xHtVKGrEQJDcilBpo4G"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCB27jU36egXywHSYlddoKN"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">6</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RIJJUKPR42P4BJmmMwGGDX"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCB27jU36egXywHSYlddoKN"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2400</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RWSb8XMYgN4uGfmriYUnI1"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCB27jU36egXywHSYlddoKN"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1920</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="http://webprotege.stanford.edu/R8Ro2d7k1wEKwg1JWn4Jen7"/>
@@ -385,14 +798,59 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">64</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RIJJUKPR42P4BJmmMwGGDX"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RN4KCmEPHLkWLOFJwIRjeU"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">214</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="http://webprotege.stanford.edu/RWSb8XMYgN4uGfmriYUnI1"/>
         <NamedIndividual IRI="http://webprotege.stanford.edu/RN4KCmEPHLkWLOFJwIRjeU"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1080</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/R8Ro2d7k1wEKwg1JWn4Jen7"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RW6B9RJV0ZYsDVFLV7K9TP"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">14</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/R9WNkbbrR4LxSNEarVgnylf"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RW6B9RJV0ZYsDVFLV7K9TP"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RB2Z4gLX7bXxdGjyTOJTu6r"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RW6B9RJV0ZYsDVFLV7K9TP"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">2.1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RBIxEHEFr3xokpklHL6wNw1"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RW6B9RJV0ZYsDVFLV7K9TP"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">256</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RD19xHtVKGrEQJDcilBpo4G"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RW6B9RJV0ZYsDVFLV7K9TP"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RIJJUKPR42P4BJmmMwGGDX"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RW6B9RJV0ZYsDVFLV7K9TP"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">599</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RWSb8XMYgN4uGfmriYUnI1"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RW6B9RJV0ZYsDVFLV7K9TP"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">768</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/R8v00Dx8wC1FQ2MmyHwgK5E"/>
+        <NamedIndividual IRI="#poopo"/>
+        <Literal>[</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#age"/>
         <NamedIndividual IRI="#poopo"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">22</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">39</Literal>
     </DataPropertyAssertion>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="http://webprotege.stanford.edu/R8O40raYUfZ77aXgNU5K53h"/>
@@ -486,12 +944,20 @@
         <DataProperty IRI="http://webprotege.stanford.edu/R912pqgDeyWx2HtnWYj0kdC"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
+        <DataProperty IRI="http://webprotege.stanford.edu/R8v00Dx8wC1FQ2MmyHwgK5E"/>
+        <DataProperty IRI="http://webprotege.stanford.edu/R9mGTBnBmZDjDscXRjGwa4j"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
         <DataProperty IRI="http://webprotege.stanford.edu/R912pqgDeyWx2HtnWYj0kdC"/>
         <DataProperty abbreviatedIRI="owl:topDataProperty"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
         <DataProperty IRI="http://webprotege.stanford.edu/R9WNkbbrR4LxSNEarVgnylf"/>
         <DataProperty IRI="http://webprotege.stanford.edu/R912pqgDeyWx2HtnWYj0kdC"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="http://webprotege.stanford.edu/R9mGTBnBmZDjDscXRjGwa4j"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
         <DataProperty IRI="http://webprotege.stanford.edu/RB2Z4gLX7bXxdGjyTOJTu6r"/>
@@ -513,12 +979,16 @@
         <DataProperty IRI="http://webprotege.stanford.edu/RWSb8XMYgN4uGfmriYUnI1"/>
         <DataProperty IRI="http://webprotege.stanford.edu/R912pqgDeyWx2HtnWYj0kdC"/>
     </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#age"/>
+        <DataProperty IRI="http://webprotege.stanford.edu/R9mGTBnBmZDjDscXRjGwa4j"/>
+    </SubDataPropertyOf>
     <DataPropertyDomain>
         <DataProperty IRI="http://webprotege.stanford.edu/R912pqgDeyWx2HtnWYj0kdC"/>
         <Class IRI="#Ordinateur"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#age"/>
+        <DataProperty IRI="http://webprotege.stanford.edu/R9mGTBnBmZDjDscXRjGwa4j"/>
         <Class IRI="#Utilisateur"/>
     </DataPropertyDomain>
     <DataPropertyRange>
@@ -534,6 +1004,11 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>http://webprotege.stanford.edu/R71uWhf9pVlpolpzZhKnxDV</IRI>
         <Literal>MacOS</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/R7JpXL3KUdW0BWVfP7gQ1g</IRI>
+        <Literal>Apple</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -557,6 +1032,11 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/R7mQI3bn3RatcbTl5ggs1wu</IRI>
+        <Literal>Dell XPS 15 7590</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>http://webprotege.stanford.edu/R84OGfklpTnVBDOq3zytK9U</IRI>
         <Literal>Tablette</Literal>
     </AnnotationAssertion>
@@ -577,6 +1057,11 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/R8bko3G8nQwOuPPXyWz2GkD</IRI>
+        <Literal>AMD</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>http://webprotege.stanford.edu/R8fD3Vnyy3ym4sxczoq1TIC</IRI>
         <Literal>Microsoft</Literal>
     </AnnotationAssertion>
@@ -587,6 +1072,26 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/R8q5qBNc3hczmBYWsROLuu7</IRI>
+        <Literal>Intel Core i7-8750H</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/R8qvgp6Xsbu9Sf5K5xIuAgg</IRI>
+        <Literal>Asus V241FAK-WA076T</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/R8sPdyBTRSir4a5gd6Ooj8Y</IRI>
+        <Literal>Razer Blade 15</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/R8v00Dx8wC1FQ2MmyHwgK5E</IRI>
+        <Literal>budget</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>http://webprotege.stanford.edu/R912pqgDeyWx2HtnWYj0kdC</IRI>
         <Literal>aPourCaracteristique</Literal>
     </AnnotationAssertion>
@@ -594,6 +1099,16 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>http://webprotege.stanford.edu/R914y5cl4H3R3KwRUTT95Hp</IRI>
         <Literal>UsagePersonnel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/R94hYq5cDZ4AhfpEDb04oAU</IRI>
+        <Literal>Asus</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/R9KUqfEO5CyPoVRCor06osf</IRI>
+        <Literal>Intel Core i7-9750H</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -617,8 +1132,23 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/R9gX1GHyWm4jOq51qCw233k</IRI>
+        <Literal>Dell</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/R9mGTBnBmZDjDscXRjGwa4j</IRI>
+        <Literal>aPourProfil</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>http://webprotege.stanford.edu/R9pT5uu7VIZn5TQ5GmeN7Xt</IRI>
         <Literal>Createur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/R9xFmBaCPcQpdpA14Gw5GUH</IRI>
+        <Literal>NVIDIA</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -628,7 +1158,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>http://webprotege.stanford.edu/RBGrAbVpWaeYrBAlnbBuyUO</IRI>
-        <Literal>LangueClavier</Literal>
+        <Literal>DispositionClavier</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -637,8 +1167,8 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://webprotege.stanford.edu/RBUuXHV6h3WOIojgQV5WmOw</IRI>
-        <Literal>Intégré</Literal>
+        <IRI>http://webprotege.stanford.edu/RBNdZGgQWs9hoodtijPzxVZ</IRI>
+        <Literal>NVIDIA GeForce RTX 2070 Max-Q</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -649,6 +1179,11 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>http://webprotege.stanford.edu/RCAOVfx16Yv8yxtYzTGh7cC</IRI>
         <Literal>estDans</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/RCB27jU36egXywHSYlddoKN</IRI>
+        <Literal>MacBook Pro 16</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -682,6 +1217,11 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/RDonLwgGyJMBGO5iRbnrpil</IRI>
+        <Literal>AMD Radeon Pro 5300M</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>http://webprotege.stanford.edu/RDsUKxdU7vKECEao6rbD6EF</IRI>
         <Literal>Ludacris</Literal>
     </AnnotationAssertion>
@@ -707,6 +1247,16 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/RTX9tEqHEZGzFeIk2bL6dn</IRI>
+        <Literal>NVIDIA GeForce GTX 1650 4Go</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/RW6B9RJV0ZYsDVFLV7K9TP</IRI>
+        <Literal>HP Pavilion x360 14-dh0049nf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>http://webprotege.stanford.edu/RWSb8XMYgN4uGfmriYUnI1</IRI>
         <Literal>definitionEcran</Literal>
     </AnnotationAssertion>
@@ -717,8 +1267,18 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/RgdvJtDCtOdkgr6GirAZws</IRI>
+        <Literal>HP</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>http://webprotege.stanford.edu/RmCM2daxJWk2TRMWZjCEew</IRI>
         <Literal>SystemeExploitation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/RrXLNbH7HEKeVAYzyYQG5I</IRI>
+        <Literal>Intel UHD 620</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -732,8 +1292,23 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/RyUyzJ5waGpsGOVyLrJRcy</IRI>
+        <Literal>Intel Core i3-8145U</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/RyuUzhYqwl7iObqC1d6zC1</IRI>
+        <Literal>Razer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Caracteristique</IRI>
-        <Literal>Caracteristiques</Literal>
+        <Literal>Caracteristique</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Carte_Graphique</IRI>
+        <Literal>CarteGraphique</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
