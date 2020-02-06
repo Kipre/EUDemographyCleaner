@@ -99,6 +99,9 @@
         <ObjectProperty IRI="http://webprotege.stanford.edu/R8O40raYUfZ77aXgNU5K53h"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/R9L3ZzqgR2HrqInYDxNActX"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="http://webprotege.stanford.edu/R9WjBOr6BJXTWB7cOIJO91y"/>
     </Declaration>
     <Declaration>
@@ -467,6 +470,11 @@
         <NamedIndividual IRI="http://webprotege.stanford.edu/RwKd0oaxCczWJUnFwNnYm4"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/R9L3ZzqgR2HrqInYDxNActX"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R71uWhf9pVlpolpzZhKnxDV"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R7JpXL3KUdW0BWVfP7gQ1g"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://webprotege.stanford.edu/R9WjBOr6BJXTWB7cOIJO91y"/>
         <NamedIndividual IRI="http://webprotege.stanford.edu/R7mQI3bn3RatcbTl5ggs1wu"/>
         <NamedIndividual IRI="http://webprotege.stanford.edu/RvMptpYFxVpdsspgBI1ZVD"/>
@@ -642,9 +650,14 @@
         <NamedIndividual IRI="http://webprotege.stanford.edu/RwKd0oaxCczWJUnFwNnYm4"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="http://webprotege.stanford.edu/Reyf6coGZTiVyfnieenXLl"/>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/R9L3ZzqgR2HrqInYDxNActX"/>
         <NamedIndividual IRI="http://webprotege.stanford.edu/RvMptpYFxVpdsspgBI1ZVD"/>
         <NamedIndividual IRI="http://webprotege.stanford.edu/R8fD3Vnyy3ym4sxczoq1TIC"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/Reyf6coGZTiVyfnieenXLl"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RyUyzJ5waGpsGOVyLrJRcy"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RwKd0oaxCczWJUnFwNnYm4"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://webprotege.stanford.edu/RBsYQqbIHDZ9DtrsOlcJIWt"/>
@@ -866,6 +879,10 @@
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/R9L3ZzqgR2HrqInYDxNActX"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="http://webprotege.stanford.edu/R9WjBOr6BJXTWB7cOIJO91y"/>
         <ObjectProperty IRI="#a_pour_caracteristique"/>
     </SubObjectPropertyOf>
@@ -897,6 +914,10 @@
         <Class IRI="#Ordinateur"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/R9L3ZzqgR2HrqInYDxNActX"/>
+        <Class IRI="http://webprotege.stanford.edu/RmCM2daxJWk2TRMWZjCEew"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="http://webprotege.stanford.edu/R9eHhrt2wXZGRsiX1sUu7sj"/>
         <Class IRI="#Ordinateur"/>
     </ObjectPropertyDomain>
@@ -919,6 +940,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://webprotege.stanford.edu/R8O40raYUfZ77aXgNU5K53h"/>
         <Class IRI="#Utilisateur"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/R9L3ZzqgR2HrqInYDxNActX"/>
+        <Class IRI="http://webprotege.stanford.edu/R8kB6Chnn9XuTCeBGZd6N5W"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://webprotege.stanford.edu/R9eHhrt2wXZGRsiX1sUu7sj"/>
@@ -1139,6 +1164,11 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>http://webprotege.stanford.edu/R9KUqfEO5CyPoVRCor06osf</IRI>
         <Literal>Intel Core i7-9750H</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://webprotege.stanford.edu/R9L3ZzqgR2HrqInYDxNActX</IRI>
+        <Literal>estCreePar</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
