@@ -6,6 +6,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://www.semanticweb.org/papi/ontologies/2020/0/pc_recommender">
+    <Prefix name="" IRI="http://www.semanticweb.org/papi/ontologies/2020/0/pc_recommender"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
@@ -243,6 +244,12 @@
         <NamedIndividual IRI="http://webprotege.stanford.edu/RyuUzhYqwl7iObqC1d6zC1"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#HUAWEI"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#HUAWEI_MateBook"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#poopo"/>
     </Declaration>
     <Declaration>
@@ -457,6 +464,14 @@
         <NamedIndividual IRI="http://webprotege.stanford.edu/RyuUzhYqwl7iObqC1d6zC1"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="http://webprotege.stanford.edu/R8kB6Chnn9XuTCeBGZd6N5W"/>
+        <NamedIndividual IRI="#HUAWEI"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://webprotege.stanford.edu/R9ND7dLbQNb89EnkkP4tRmn"/>
+        <NamedIndividual IRI="#HUAWEI_MateBook"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="http://webprotege.stanford.edu/R7VSw3SZtebLstVGNEC1oXi"/>
         <NamedIndividual IRI="#poopo"/>
     </ClassAssertion>
@@ -658,6 +673,31 @@
         <ObjectProperty IRI="http://webprotege.stanford.edu/Reyf6coGZTiVyfnieenXLl"/>
         <NamedIndividual IRI="http://webprotege.stanford.edu/RyUyzJ5waGpsGOVyLrJRcy"/>
         <NamedIndividual IRI="http://webprotege.stanford.edu/RwKd0oaxCczWJUnFwNnYm4"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/R9WjBOr6BJXTWB7cOIJO91y"/>
+        <NamedIndividual IRI="#HUAWEI_MateBook"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RvMptpYFxVpdsspgBI1ZVD"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/R9eHhrt2wXZGRsiX1sUu7sj"/>
+        <NamedIndividual IRI="#HUAWEI_MateBook"/>
+        <NamedIndividual IRI="#HUAWEI"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="http://webprotege.stanford.edu/RDXcKydO13MVkpVk7cHlWRs"/>
+        <NamedIndividual IRI="#HUAWEI_MateBook"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RCUqDOjzOfn4sPMgPB1zbAB"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#contient"/>
+        <NamedIndividual IRI="#HUAWEI_MateBook"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/R8q5qBNc3hczmBYWsROLuu7"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#contient"/>
+        <NamedIndividual IRI="#HUAWEI_MateBook"/>
+        <NamedIndividual IRI="http://webprotege.stanford.edu/RrXLNbH7HEKeVAYzyYQG5I"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="http://webprotege.stanford.edu/RBsYQqbIHDZ9DtrsOlcJIWt"/>
@@ -863,6 +903,41 @@
         <DataProperty IRI="http://webprotege.stanford.edu/RWSb8XMYgN4uGfmriYUnI1"/>
         <NamedIndividual IRI="http://webprotege.stanford.edu/RW6B9RJV0ZYsDVFLV7K9TP"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">768</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/R8Ro2d7k1wEKwg1JWn4Jen7"/>
+        <NamedIndividual IRI="#HUAWEI_MateBook"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">13.0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/R9WNkbbrR4LxSNEarVgnylf"/>
+        <NamedIndividual IRI="#HUAWEI_MateBook"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">8</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RB2Z4gLX7bXxdGjyTOJTu6r"/>
+        <NamedIndividual IRI="#HUAWEI_MateBook"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">1.8</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RBIxEHEFr3xokpklHL6wNw1"/>
+        <NamedIndividual IRI="#HUAWEI_MateBook"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">512</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RD19xHtVKGrEQJDcilBpo4G"/>
+        <NamedIndividual IRI="#HUAWEI_MateBook"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">4</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RIJJUKPR42P4BJmmMwGGDX"/>
+        <NamedIndividual IRI="#HUAWEI_MateBook"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#decimal">1278.17</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://webprotege.stanford.edu/RWSb8XMYgN4uGfmriYUnI1"/>
+        <NamedIndividual IRI="#HUAWEI_MateBook"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1440</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="http://webprotege.stanford.edu/R8v00Dx8wC1FQ2MmyHwgK5E"/>
@@ -1372,6 +1447,21 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HUAWEI</IRI>
+        <Literal>HUAWEI</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#HUAWEI_MateBook</IRI>
+        <Literal>HUAWEI MateBook</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Ordinateur</IRI>
+        <Literal>Ordinateur</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#a_pour_caracteristique</IRI>
         <Literal>aPourCaracteristique</Literal>
     </AnnotationAssertion>
@@ -1389,5 +1479,5 @@
 
 
 
-<!-- Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 
