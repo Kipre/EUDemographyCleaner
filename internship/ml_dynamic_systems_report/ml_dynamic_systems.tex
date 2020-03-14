@@ -1,5 +1,76 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage{filecontents}
+
+\begin{filecontents}{references.bib}
+@article {Bar-Sinai15344,
+	author = {Bar-Sinai, Yohai and Hoyer, Stephan and Hickey, Jason and Brenner, Michael P.},
+	title = {Learning data-driven discretizations for partial differential equations},
+	volume = {116},
+	number = {31},
+	pages = {15344--15349},
+	year = {2019},
+	doi = {10.1073/pnas.1814058116},
+	publisher = {National Academy of Sciences},
+	issn = {0027-8424},
+	URL = {https://www.pnas.org/content/116/31/15344},
+	eprint = {https://www.pnas.org/content/116/31/15344.full.pdf},
+	journal = {Proceedings of the National Academy of Sciences}
+}
+
+@misc{nakamurazimmerer2019adaptive,
+    title={Adaptive Deep Learning for High-Dimensional Hamilton-Jacobi-Bellman Equations},
+    author={Tenavi Nakamura-Zimmerer and Qi Gong and Wei Kang},
+    year={2019},
+    eprint={1907.05317},
+    archivePrefix={arXiv},
+    primaryClass={math.OC}
+}
+
+@misc{kunisch,
+	author = {Kunisch, Karl and Walter, Daniel},
+	year = {2020},
+	month = {02},
+	pages = {},
+	title = {Semiglobal optimal feedback stabilization of autonomous systems via deep neural network approximation}
+}
+
+@misc{long2017pdenet,
+    title={PDE-Net: Learning PDEs from Data},
+    author={Zichao Long and Yiping Lu and Xianzhong Ma and Bin Dong},
+    year={2017},
+    eprint={1710.09668},
+    archivePrefix={arXiv},
+    primaryClass={math.NA}
+}
+
+@article{meshing,
+	author = {Manevitz, Larry and Yousef, Malik and Givoli, Dan},
+	year = {2002},
+	month = {12},
+	pages = {233 - 250},
+	title = {Finite–Element Mesh Generation Using Self–Organizing Neural Networks},
+	volume = {12},
+	journal = {Computer‐Aided Civil and Infrastructure Engineering},
+	doi = {10.1111/0885-9507.00060}
+}
+
+@book{kohonen2012self,
+  title={Self-organization and associative memory},
+  author={Kohonen, Teuvo},
+  volume={8},
+  year={2012},
+  publisher={Springer Science \& Business Media}
+}
+
+@book{brunton2019data,
+  title={Data-driven science and engineering: Machine learning, dynamical systems, and control},
+  author={Brunton, Steven L and Kutz, J Nathan},
+  year={2019},
+  publisher={Cambridge University Press}
+}
+
+\end{filecontents}
 
 \title{ML for Dynamic Systems}
 \author{Cyprien Neverov}
@@ -56,11 +127,11 @@ In \cite{long2017pdenet} the authors say that the neural networks are able to mi
 There are also efforts directed towards generating meshes for finite-element methods.
 Like for example in \cite{meshing} where the authors use neural networks for this purpose.
 
-\begin{figure}[h]
-\caption{Example of a neural meshing}
-\centering
-\includegraphics[width=0.5\textwidth]{meshing}
-\end{figure}
+% \begin{figure}[h]
+% \caption{Example of a neural meshing}
+% \centering
+% \includegraphics[width=0.5\textwidth]{meshing}
+% \end{figure}
 
 The article uses self-organizing neural networks which apparently were introduced back in the late 80s in \cite{kohonen2012self}.
 
