@@ -6,13 +6,6 @@ from scipy.io import savemat
 ## Time intervals
 t = np.linspace(1, 10, 300)
 
-## Parameters
-linear_oscillator_params = np.array([[-0.1, 2],
-	                                 [-2, -0.1]])
-oscillator_3d_params = np.array([[-0.1, 2, 0],
-                                 [-2, -0.1, 0],
-                                 [0, 0, -0.3]])
-
 ## Functions
 def linear_oscillator(t, y):
 	[x, y] = y 
@@ -70,5 +63,7 @@ for function in functions.keys():
 		            t_eval=t)
 	if res['success'] == True:
 		results[function] = res['y'].T
+	else:
+		raise Exception(f'Integration failed for {function}')
 
-savemat('py_odes.mat', results)
+ savemat('py_odes.mat', results)
