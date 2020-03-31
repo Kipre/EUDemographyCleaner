@@ -2,9 +2,10 @@ import numpy as np
 from scipy.integrate import solve_ivp
 from scipy.io import savemat
 
+## Be sure to be in the right directory before executiong
 
 ## Time intervals
-t = np.linspace(1, 10, 300)
+t = np.linspace(0, 10, 300)
 
 ## Functions
 def linear_oscillator(t, y):
@@ -55,15 +56,44 @@ initial_conditions = {'linear_oscillator': [2, 0],
                       'mean_field': [-100, 0, 0],
                       'van_der_pol': [2, 0]}
 
-## Integration
-results = {}
-for function in functions.keys():
-	res = solve_ivp(functions[function], (t[0], t[-1]), 
-		            initial_conditions[function],
-		            t_eval=t)
-	if res['success'] == True:
-		results[function] = res['y'].T
-	else:
-		raise Exception(f'Integration failed for {function}')
+def gererate_initial_conditions(seeds, nb_augmentations=9, dispersion=0.1):
+	result = {}
+	for function, condition in seeds.items():
+		conditions = [condition]
+		magnitude = max(condition)*dispersion
+		for k in range(nb_augmentations):
+			conditions.append(condition + magnitude*np.random.randn(len(condition)))
+		result[function] = conditions
+	return result
 
- savemat('py_odes.mat', results)
+
+## Integration
+if __name__ == "__main__":
+	# only one trajectory
+	results = {'t': t}
+	for function in functions.keys():
+		res = solve_ivp(functions[function], (t[0], t[-1]), 
+			            initial_conditions[function],
+			            t_eval=t)
+		if res['success'] == True:
+			results[function] = res['y'].T
+		else:
+			raise Exception(f'Integration failed for {function}')
+
+	savemat('py_odes.mat', results)
+
+	# multiple tajectories
+	results = {'t': t}
+	for function, conditions in gererate_initial_conditions(initial_conditions).items():
+		result = []
+		for initial_condition in conditions:
+			res = solve_ivp(functions[function], (t[0], t[-1]), 
+				            initial_condition,
+				            t_eval=t)
+			if res['success'] == True:
+				result.append(res['y'].T)
+			else:
+				raise Exception(f'Integration failed for {function}')
+		results[function] = np.array(result, dtype=np.float32)
+
+	savemat('py_odes_mult_traj.mat', results)
