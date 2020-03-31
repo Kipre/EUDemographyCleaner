@@ -1,5 +1,28 @@
-# Some Title
+# Discussions
 
-## Solvers
+## 1
 
-[`scipy.integrate.solve_ivp`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp) used with the default configuration seems to be equivalent to MATLAB's [`ode45`](https://www.mathworks.com/help/matlab/ref/ode45.html).
+### Results
+
+- PDE identification for diffusion with transport
+- 
+
+### New directions 
+
+- Replicate results from Brunton's article for ODEs
+
+## 2
+
+### New directions 
+
+- `scipy.integrate.solve_ivp` vs `ode45`
+ 
+- `tf.linagl.lstsq` vs Ipopt
+
+- single vs multiple trajectories
+
+## 3
+
+### New directions 
+
+- curve fitting vs ODEs
