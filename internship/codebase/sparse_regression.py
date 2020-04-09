@@ -1,6 +1,8 @@
 import tensorflow as tf
 import numpy as np
-from itertools import combinations_with_replacement
+from scipy.integrate import solve_ivp
+import codebase
+from codebase.utils import find_degree, make_polynomials
 
 
 def sparse_regression(augmented, targets, 
@@ -37,3 +39,38 @@ def sparse_regression(augmented, targets,
             break
         weights = tf.cast(other_weights, dtype=tf.float32)
     return weights, iteration
+
+
+def naive_integrate(weights, initial_state, nb_iterations=100, limit=1e10):
+    states = [np.array(initial_state)]
+    max_degree = find_degree(weights.shape[0], weights.shape[1] + 1)
+    for k in range(nb_iterations-1):
+        new_state, _ = make_polynomials(states[k], max_degree=max_degree)
+        new_state = tf.matmul(new_state.reshape(1, -1), weights).numpy().reshape(-1)
+        states.append(new_state)
+    return np.array(states, dtype=np.float32)
+
+def ivp_integrate(weights, initial_state, t, max_degree=None):
+    if not max_degree:
+        max_degree = find_degree(weights.shape[0], weights.shape[1] + 1)
+    def func(t, y):
+        augmentation, _ = make_polynomials(y, max_degree=max_degree)
+        return tf.matmul(augmentation.reshape(1, -1), weights)
+    res = solve_ivp(func, (t[0], t[-1]), initial_state, t_eval=t)
+    if res['success']:
+        return res['y'].reshape(-1, 1)
+    elif res['message'] == 'Required step size is less than spacing between numbers.':
+        return complete(res['y'][0], len(t)).reshape(-1, 1)
+    else:
+        raise Exception(f"Could not integrate: {res['message']}")
+
+def integrate(weights, initial_state, t, max_degree=None, derivative=False):
+    if derivative:
+        return ivp_integrate(weights, initial_state, t, max_degree=max_degree)
+    else:
+        return naive_integrate(weights, initial_state, nb_iterations=len(t))
+
+def complete(array, n):
+    result = np.full(n, array.flatten()[-1])
+    result[:len(array)] = array
+    return result

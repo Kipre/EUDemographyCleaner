@@ -26,3 +26,9 @@
 ### New directions 
 
 - curve fitting vs ODEs
+
+## 4 
+
+### New directions
+
+- predicting COVID-19
