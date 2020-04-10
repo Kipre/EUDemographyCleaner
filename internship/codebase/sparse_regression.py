@@ -58,9 +58,9 @@ def ivp_integrate(weights, initial_state, t, max_degree=None):
         return tf.matmul(augmentation.reshape(1, -1), weights)
     res = solve_ivp(func, (t[0], t[-1]), initial_state, t_eval=t)
     if res['success']:
-        return res['y'].reshape(-1, 1)
+        return res['y'].T
     elif res['message'] == 'Required step size is less than spacing between numbers.':
-        return complete(res['y'][0], len(t)).reshape(-1, 1)
+        return complete(res['y'][0], len(t)).T
     else:
         raise Exception(f"Could not integrate: {res['message']}")
 
