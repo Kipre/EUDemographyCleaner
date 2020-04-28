@@ -13301,8 +13301,8 @@ $$y_{t+1} = f(y_t, i_{1, t}, i_2, i_3, i_4, ... , i_{40})$$<p></p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><img src="austria.png" alt="Austria"></td>
-<td style="text-align:center"><img src="china.png" alt="China"></td>
+<td style="text-align:center"><img src="https://github.com/Kipre/files/blob/master/internship/reports/austria.png?raw=true" alt="Austria"></td>
+<td style="text-align:center"><img src="https://github.com/Kipre/files/blob/master/internship/reports/china.png?raw=true" alt="China"></td>
 </tr>
 </tbody>
 </table>
@@ -13331,7 +13331,13 @@ f(y_t, i_{1, t}, i_2) &amp; = \theta_1 \cdot y_t + \theta_2 \cdot y_t  \cdot i_{
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Comparison-to-other-approaches">Comparison to other approaches<a class="anchor-link" href="#Comparison-to-other-approaches">&#182;</a></h2>
+<h2 id="Comparison-to-other-approaches">Comparison to other approaches<a class="anchor-link" href="#Comparison-to-other-approaches">&#182;</a></h2><p>Our approach is different from usual SIR based models because:</p>
+<ul>
+<li>Our goal is not to propose but to find a model.</li>
+<li>We want our model to be valid on all countries.</li>
+<li>We want to find a mapping between the descriptive characteristics of a country and the impact of the pandemic in this country.</li>
+</ul>
+
 </div>
 </div>
 </div></section></section><section><section>
@@ -13342,7 +13348,7 @@ f(y_t, i_{1, t}, i_2) &amp; = \theta_1 \cdot y_t + \theta_2 \cdot y_t  \cdot i_{
 <li>3908 training examples ($((y_t, i_{1, t}, i_2, ... , i_{40}), y_{t+1})$ pairs) and 802 test examples for 105 and 26 countries respectively. </li>
 <li>42 variables (state + stringency + indicators). </li>
 <li>Maximum degree of 3.</li>
-<li>This yields more than 800 polynomial terms</li>
+<li>This yields more than 800 polynomial terms.</li>
 </ul>
 <h2 id="Results">Results<a class="anchor-link" href="#Results">&#182;</a></h2><ul>
 <li>Training data can be relatively precisely fitted</li>
@@ -13357,7 +13363,7 @@ f(y_t, i_{1, t}, i_2) &amp; = \theta_1 \cdot y_t + \theta_2 \cdot y_t  \cdot i_{
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Realistic-looking-trajectories">Realistic-looking trajectories<a class="anchor-link" href="#Realistic-looking-trajectories">&#182;</a></h3><p>Those are from the training set.</p>
 <p><!-- ![successful](successful_4.png) -->
-<img src="successful_4.png" alt="successful" width="700"/></p>
+<img src="https://github.com/Kipre/files/blob/master/internship/reports/successful_4.png?raw=true" alt="successful" width="700"/></p>
 
 </div>
 </div>
@@ -13367,7 +13373,7 @@ f(y_t, i_{1, t}, i_2) &amp; = \theta_1 \cdot y_t + \theta_2 \cdot y_t  \cdot i_{
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Failing-trajectories">Failing trajectories<a class="anchor-link" href="#Failing-trajectories">&#182;</a></h3><p>Australia and Japan are from the train set, somehow they did not fit correctly. Chile and Denmark are from the test set and none of the countries from the test set have a plausible trajectory. (The $y$ scale is wrong)</p>
 <p><!-- ![unsuccessful](unsuccessful.png) -->
-<img src="unsuccessful.png" alt="unsuccessful" width="700"/></p>
+<img src="https://github.com/Kipre/files/blob/master/internship/reports/unsuccessful.png?raw=true" alt="unsuccessful" width="700"/></p>
 
 </div>
 </div>
