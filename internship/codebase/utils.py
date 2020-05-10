@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 from itertools import combinations_with_replacement
 from tabulate import tabulate
 from IPython.display import display, Markdown, Latex
@@ -74,12 +75,6 @@ def make_targets(data, derivative=False, timestep=1, threshold=-1, listed=False)
 
 
 def show_weights(weights, derivative=False, variables=None, max_degree=6, raw=False, warn=True, pde=False):
-    if (np.diag(weights, k=-1) > 0.5).all() and (np.diag(weights, k=-1) < 1.5).all():
-        if derivative and warn:
-            print('Are you sure those are derivatives?')
-    else:
-        if not derivative and warn:
-            print('Are you sure those are not derivatives?')
     if not pde:
         nb_variables = weights.shape[1]
         if not variables:
@@ -103,4 +98,41 @@ def find_degree(N, n):
         if N == len(list(combinations_with_replacement('a'*n, max_degree))):
             return max_degree
     raise Exception("Couldn't find a max degree between 1 and 10")
+
+class CountryDataset:
+
+    iso = {'Aruba': 'ABW', 'Czechia': 'CZE', 'Canada': 'CAN', 'Australia': 'AUS', 'US': 'USA', 'Korea, South': 'KOR', 'Belgium': 'BEL', 'Switzerland': 'CHE', 'Austria':'AUT', 'Afgé': 'CPV', 'Costa Rica': 'CRI', 'China':'CHN', 'Cuba': 'CUB', 'Cyprus': 'CYP', 'Czech Republic': 'CZE', 'Germany': 'DEU', 'Djibouti': 'DJI', 'Dominica': 'DMA', 'Denmark': 'DNK', 'Dominican Republic': 'DOM', 'Algeria': 'DZA', 'Ecuador': 'ECU', 'Egypt': 'EGY', 'Spain': 'ESP', 'Estonia': 'EST', 'Ethiopia': 'ETH', 'Finland': 'FIN', 'France': 'FRA', 'Gabon': 'GAB', 'United Kingdom': 'GBR', 'Ghana': 'GHA', 'Gambia': 'GMB', 'Greece': 'GRC', 'Greenland': 'GRL', 'Guatemala': 'GTM', 'Guam': 'GUM', 'Guyana': 'GUY', 'Hong Kong': 'HKG', 'Honduras': 'HND', 'Croatia': 'HRV', 'Hungary': 'HUN', 'Indonesia': 'IDN', 'India': 'IND', 'Ireland': 'IRL', 'Iran': 'IRN', 'Iraq': 'IRQ', 'Iceland': 'ISL', 'Israel': 'ISR', 'Italy': 'ITA', 'Jamaica': 'JAM', 'Jordan': 'JOR', 'Japan': 'JPN', 'Kazakhstan': 'KAZ', 'Kenya': 'KEN', 'Kyrgyz Republic': 'KGZ', 'South Korea': 'KOR', 'Kuwait': 'KWT', 'Laos': 'LAO', 'Lebanon': 'LBN', 'Libya': 'LBY', 'Sri Lanka': 'LKA', 'Lesotho': 'LSO', 'Luxembourg': 'LUX', 'Macao': 'MAC', 'Morocco': 'MAR', 'Moldova': 'MDA', 'Madagascar': 'MDG', 'Mexico': 'MEX', 'Mali': 'MLI', 'Myanmar': 'MMR', 'Mongolia': 'MNG', 'Mozambique': 'MOZ', 'Mauritania': 'MRT', 'Mauritius': 'MUS', 'Malawi': 'MWI', 'Malaysia': 'MYS', 'Namibia': 'NAM', 'Niger': 'NER', 'Nigeria': 'NGA', 'Nicaragua': 'NIC', 'Netherlands': 'NLD', 'Norway': 'NOR', 'New Zealand': 'NZL', 'Oman': 'OMN', 'Pakistan': 'PAK', 'Panama': 'PAN', 'Peru': 'PER', 'Philippines': 'PHL', 'Papua New Guinea': 'PNG', 'Poland': 'POL', 'Puerto Rico': 'PRI', 'Portugal': 'PRT', 'Paraguay': 'PRY', 'Palestine': 'PSE', 'Qatar': 'QAT', 'Romania': 'ROU', 'Russia': 'RUS', 'Rwanda': 'RWA', 'Saudi Arabia': 'SAU', 'Sudan': 'SDN', 'Singapore': 'SGP', 'Sierra Leone': 'SLE', 'El Salvador': 'SLV', 'San Marino': 'SMR', 'Serbia': 'SRB', 'South Sudan': 'SSD', 'Slovak Republic': 'SVK', 'Slovenia': 'SVN', 'Sweden': 'SWE', 'Eswatini': 'SWZ', 'Seychelles': 'SYC', 'Syria': 'SYR', 'Chad': 'TCD', 'Thailand': 'THA', 'Trinidad and Tobago': 'TTO', 'Tunisia': 'TUN', 'Turkey': 'TUR', 'Taiwan': 'TWN', 'Tanzania': 'TZA', 'Uganda': 'UGA', 'Ukraine': 'UKR', 'Uruguay': 'URY', 'United States': 'USA', 'Uzbekistan': 'UZB', 'Venezuela': 'VEN', 'Vietnam': 'VNM', 'South Africa': 'ZAF', 'Zambia': 'ZMB', 'Zimbabwe': 'ZWE'}
+
+    def __init__(self, 
+                 oxford_url = 'https://raw.githubusercontent.com/OxCGRT/covid-policy-tracker/master/data/OxCGRT_latest.csv',
+                 hopkins_cases_url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv',
+                 hopkins_recovered_url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv',
+                 indicators_path = 'indicators.csv'):
+        self.oxford = pd.read_csv(oxford_url, parse_dates=['Date'])
+        self.hopkins_cases = pd.read_csv(hopkins_cases_url)
+        self.hopkins_recovered = pd.read_csv(hopkins_recovered_url)
+        self.indicators = pd.read_csv(indicators_path).set_index('Country', drop=True)
+
+    def get_sir(self, country, rescaling=1):
+        recovered = self.hopkins_recovered[self.hopkins_recovered['Country/Region'] == country].sum().iloc[4:]
+        recovered = np.array(recovered, dtype=np.int64)/rescaling
+        cumulative = self.get_cumulative(country, rescaling)
+
+        total_population = np.full_like(cumulative, self.indicators.loc[self.iso[country], 'SP.POP.TOTL'])/rescaling
+        infected = cumulative - recovered
+        susceptible = total_population - cumulative
+        result = np.concatenate([susceptible.reshape(-1, 1), 
+                                 infected.reshape(-1, 1), 
+                                 recovered.reshape(-1, 1)],
+                                 axis=1)
+        return result
+
+    def get_cumulative(self, country, rescaling=1):
+        cumulative = self.hopkins_cases[self.hopkins_cases['Country/Region'] == country].sum().iloc[4:]
+        return np.array(cumulative, dtype=np.int64)/rescaling
+
+    def all_hopkins_countries(self, cases_cap=np.inf):
+        return list(self.hopkins_cases['Country/Region'].unique())
+        
+
 

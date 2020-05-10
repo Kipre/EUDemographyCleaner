@@ -58,7 +58,7 @@ def ivp_integrate(weights, initial_state, t, max_degree=None):
         return tf.matmul(augmentation.reshape(1, -1), weights)
     res = solve_ivp(func, (t[0], t[-1]), initial_state, t_eval=t)
     if res['success']:
-        return res['y'].T
+        return res['y']
     elif res['message'] == 'Required step size is less than spacing between numbers.':
         return complete(res['y'][0], len(t)).T
     else:
@@ -66,7 +66,10 @@ def ivp_integrate(weights, initial_state, t, max_degree=None):
 
 def integrate(weights, initial_state, t, max_degree=None, derivative=False):
     if derivative:
-        return ivp_integrate(weights, initial_state, t, max_degree=max_degree)
+        guess = ivp_integrate(weights, initial_state, t, max_degree=max_degree)
+        if len(guess.shape) == 1:
+            guess = guess.reshape(1, -1)
+        return guess.T
     else:
         return naive_integrate(weights, initial_state, nb_iterations=len(t))
 
