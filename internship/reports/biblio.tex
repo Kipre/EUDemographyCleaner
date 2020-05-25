@@ -5,6 +5,47 @@
 %% pandoc biblio.tex -o biblio.html --bibliography references.bib
 
 \begin{document}
+
+
+\dot{X} = 
+\begin{bmatrix}
+\dot{\mathbf {x}}(t_1) \\
+\dot{\mathbf {x}}(t_2) \\
+\vdots \\
+\dot{\mathbf {x}}(t_m)
+\end{bmatrix}
+\text{ and }
+X = 
+\begin{bmatrix}
+\mathbf {x}(t_1) \\
+\mathbf {x}(t_2) \\
+\vdots \\
+\mathbf {x}(t_m)
+\end{bmatrix}
+
+
+\begin{bmatrix}
+\dot{\mathbf {x}}(t_1) \\
+\dot{\mathbf {x}}(t_2) \\
+\vdots \\
+\dot{\mathbf {x}}(t_m)
+\end{bmatrix}
+= \begin{bmatrix}
+1 & \mathbf{x}(t_1) & \mathbf{x}(t_1)^2 &  \cdots & \mathbf{x}(t_1)^n\\
+1 & \mathbf{x}(t_2) & \mathbf{x}(t_2)^2 &  \cdots & \mathbf{x}(t_2)^n\\
+\vdots & \vdots  & \vdots  & \ddots & \vdots\\
+1 & \mathbf{x}(t_m) & \mathbf{x}(t_m)^2 &  \cdots & \mathbf{x}(t_m)^n\\
+\end{bmatrix}
+\times
+\begin{bmatrix}
+\alpha_0 \\
+\alpha_1 \\
+\alpha_2 \\
+\vdots \\
+\alpha_n
+
+\end{bmatrix}
+
 \nocite{*}
 \printbibliography
 \end{document}

@@ -58,9 +58,9 @@ def ivp_integrate(weights, initial_state, t, max_degree=None):
         return tf.matmul(augmentation.reshape(1, -1), weights)
     res = solve_ivp(func, (t[0], t[-1]), initial_state, t_eval=t)
     if res['success']:
-        return res['y']
+        return res.y
     elif res['message'] == 'Required step size is less than spacing between numbers.':
-        return complete(res['y'][0], len(t)).T
+        return complete(res.y, len(t))
     else:
         raise Exception(f"Could not integrate: {res['message']}")
 
@@ -74,6 +74,23 @@ def integrate(weights, initial_state, t, max_degree=None, derivative=False):
         return naive_integrate(weights, initial_state, nb_iterations=len(t))
 
 def complete(array, n):
-    result = np.full(n, array.flatten()[-1])
+    result = np.full((n, array.shape[1]), np.nan)
     result[:len(array)] = array
     return result
+
+def cutoff_mses(augmented, targets, a, b, num=40):
+    cutoffs = np.logspace(a, b, num=num)
+    sparsity = []
+    mses = []
+    all_weights = []
+
+    for k in cutoffs:
+        weights, _ = sparse_regression(augmented, targets, cutoff=k)
+        mse = ((tf.matmul(tf.cast(augmented, dtype=tf.float32), tf.cast(weights, dtype=tf.float32)) - targets)**2).numpy().mean()
+        mses.append(mse)
+        sparsity.append((weights.numpy() == 0).sum()/len(weights.numpy().flatten()))
+        all_weights.append(weights)
+    return { 'cutoffs': cutoffs,
+             'sparsity': sparsity,
+             'mses': mses,
+             'all_weights': all_weights }

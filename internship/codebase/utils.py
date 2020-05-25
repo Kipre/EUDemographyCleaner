@@ -3,6 +3,7 @@ import pandas as pd
 from itertools import combinations_with_replacement
 from tabulate import tabulate
 from IPython.display import display, Markdown, Latex
+import pycountry
 
 
 def reduce(expression, terms):
@@ -99,6 +100,34 @@ def find_degree(N, n):
             return max_degree
     raise Exception("Couldn't find a max degree between 1 and 10")
 
+def make_targets_df(data, time_column='Date', category_column='CountryCode'):
+    data = data.sort_values([category_column, time_column]).copy()
+    first_date = data.drop_duplicates(category_column)
+    last_date = data.drop_duplicates(category_column, keep='last')
+    m2, m1 = data.drop(first_date.index).copy(), data.drop(last_date.index).copy()
+    return m2.reset_index(drop=True), m1.reset_index(drop=True)
+
+def make_polynomials_df(data, variables, predicted_variables, time_dependent_variables=None, max_degree=2):
+    """Returns the augmented array and the number of transformations"""
+    variables = ['1'] + list(variables)
+    
+    def sparse_list(count):
+        return [1]*count + [np.nan]*(max_degree - count)
+    
+    if '1' not in data.columns:
+        data['1'] = 1
+    result = pd.DataFrame()
+    integration_args = {"constant_variables": [], "sparse_filters": []}
+    if not time_dependent_variables:
+        time_dependent_variables = predicted_variables
+    for columns in combinations_with_replacement(variables, max_degree):
+        if not set(predicted_variables).isdisjoint(columns):
+            result['*'.join(columns)] = data.loc[:, columns].prod(axis=1, numeric_only=True)
+            integration_args['constant_variables'].append([col for col in columns if col not in time_dependent_variables + ['1']])
+            integration_args['sparse_filters'].append(sum([sparse_list(columns.count(col)) for col in time_dependent_variables], []))
+    integration_args['sparse_filters'] = np.array(integration_args['sparse_filters'])
+    return result, integration_args
+
 class CountryDataset:
 
     iso = {'Aruba': 'ABW', 'Czechia': 'CZE', 'Canada': 'CAN', 'Australia': 'AUS', 'US': 'USA', 'Korea, South': 'KOR', 'Belgium': 'BEL', 'Switzerland': 'CHE', 'Austria':'AUT', 'Afgé': 'CPV', 'Costa Rica': 'CRI', 'China':'CHN', 'Cuba': 'CUB', 'Cyprus': 'CYP', 'Czech Republic': 'CZE', 'Germany': 'DEU', 'Djibouti': 'DJI', 'Dominica': 'DMA', 'Denmark': 'DNK', 'Dominican Republic': 'DOM', 'Algeria': 'DZA', 'Ecuador': 'ECU', 'Egypt': 'EGY', 'Spain': 'ESP', 'Estonia': 'EST', 'Ethiopia': 'ETH', 'Finland': 'FIN', 'France': 'FRA', 'Gabon': 'GAB', 'United Kingdom': 'GBR', 'Ghana': 'GHA', 'Gambia': 'GMB', 'Greece': 'GRC', 'Greenland': 'GRL', 'Guatemala': 'GTM', 'Guam': 'GUM', 'Guyana': 'GUY', 'Hong Kong': 'HKG', 'Honduras': 'HND', 'Croatia': 'HRV', 'Hungary': 'HUN', 'Indonesia': 'IDN', 'India': 'IND', 'Ireland': 'IRL', 'Iran': 'IRN', 'Iraq': 'IRQ', 'Iceland': 'ISL', 'Israel': 'ISR', 'Italy': 'ITA', 'Jamaica': 'JAM', 'Jordan': 'JOR', 'Japan': 'JPN', 'Kazakhstan': 'KAZ', 'Kenya': 'KEN', 'Kyrgyz Republic': 'KGZ', 'South Korea': 'KOR', 'Kuwait': 'KWT', 'Laos': 'LAO', 'Lebanon': 'LBN', 'Libya': 'LBY', 'Sri Lanka': 'LKA', 'Lesotho': 'LSO', 'Luxembourg': 'LUX', 'Macao': 'MAC', 'Morocco': 'MAR', 'Moldova': 'MDA', 'Madagascar': 'MDG', 'Mexico': 'MEX', 'Mali': 'MLI', 'Myanmar': 'MMR', 'Mongolia': 'MNG', 'Mozambique': 'MOZ', 'Mauritania': 'MRT', 'Mauritius': 'MUS', 'Malawi': 'MWI', 'Malaysia': 'MYS', 'Namibia': 'NAM', 'Niger': 'NER', 'Nigeria': 'NGA', 'Nicaragua': 'NIC', 'Netherlands': 'NLD', 'Norway': 'NOR', 'New Zealand': 'NZL', 'Oman': 'OMN', 'Pakistan': 'PAK', 'Panama': 'PAN', 'Peru': 'PER', 'Philippines': 'PHL', 'Papua New Guinea': 'PNG', 'Poland': 'POL', 'Puerto Rico': 'PRI', 'Portugal': 'PRT', 'Paraguay': 'PRY', 'Palestine': 'PSE', 'Qatar': 'QAT', 'Romania': 'ROU', 'Russia': 'RUS', 'Rwanda': 'RWA', 'Saudi Arabia': 'SAU', 'Sudan': 'SDN', 'Singapore': 'SGP', 'Sierra Leone': 'SLE', 'El Salvador': 'SLV', 'San Marino': 'SMR', 'Serbia': 'SRB', 'South Sudan': 'SSD', 'Slovak Republic': 'SVK', 'Slovenia': 'SVN', 'Sweden': 'SWE', 'Eswatini': 'SWZ', 'Seychelles': 'SYC', 'Syria': 'SYR', 'Chad': 'TCD', 'Thailand': 'THA', 'Trinidad and Tobago': 'TTO', 'Tunisia': 'TUN', 'Turkey': 'TUR', 'Taiwan': 'TWN', 'Tanzania': 'TZA', 'Uganda': 'UGA', 'Ukraine': 'UKR', 'Uruguay': 'URY', 'United States': 'USA', 'Uzbekistan': 'UZB', 'Venezuela': 'VEN', 'Vietnam': 'VNM', 'South Africa': 'ZAF', 'Zambia': 'ZMB', 'Zimbabwe': 'ZWE'}
@@ -112,13 +141,58 @@ class CountryDataset:
         self.hopkins_cases = pd.read_csv(hopkins_cases_url)
         self.hopkins_recovered = pd.read_csv(hopkins_recovered_url)
         self.indicators = pd.read_csv(indicators_path).set_index('Country', drop=True)
+        self.oxford = self.oxford.sort_values(['CountryCode', 'Date']).copy()
+        first_values = self.oxford['CountryCode'].drop_duplicates()
+        today_values = self.oxford[self.oxford['Date'].dt.date == pd.Timestamp.today().date()]
+        # self.oxford = self.oxford[['CountryName', 'CountryCode', 'Date', 'ConfirmedCases', 'ConfirmedDeaths', 'StringencyIndexForDisplay']].drop(today_values.index)
+        self.oxford.loc[first_values.index] = 0
+        self.oxford = self.oxford.fillna(method='bfill')
 
-    def get_sir(self, country, rescaling=1):
+    def ox_full(self, cases_shifts=[], rescaling=1):
+        countries = self.oxford['CountryCode'].unique()
+        result = self.oxford.copy()
+        for shift in cases_shifts:
+            for country in countries:
+                tmp = result.loc[result['CountryCode'] == country]['ConfirmedCases']/rescaling
+                tmp = tmp.shift(periods=shift, fill_value=0)
+                result.loc[result['CountryCode'] == country, f'ConfirmedCases {shift}'] = tmp
+        return result
+
+    def ox_augmented(self, rescaling=1):
+        indicators_df = self.indicators.copy()
+        indicators_df = (indicators_df-indicators_df.min())/(indicators_df.max()-indicators_df.min()) # normalization
+
+        data = self.ox_full().join(indicators_df, on='CountryCode')
+        data = data.dropna()
+
+        data['StringencyIndexForDisplay'] /= 100
+        data['ConfirmedCases'] /= rescaling
+
+        return data
+
+    def ox_train_test(self, rescaling=1, seed=34):
+        data = self.ox_augmented(rescaling)
+
+        all_countries = data['CountryName'].unique()
+
+        if seed:
+            np.random.seed(seed)
+
+        test_countries = np.random.choice(all_countries, int(0.2*len(all_countries)), replace=False)
+        train_countries = [c for c in all_countries if c not in test_countries]
+
+
+        test_data = data.loc[data.reset_index().set_index('CountryName').loc[test_countries]['index']]
+        train_data = data.loc[data.reset_index().set_index('CountryName').loc[train_countries]['index']]
+        return train_data, test_data, {'test_countries': test_countries, 'train_countries': train_countries}
+
+
+    def sir(self, country, rescaling=1):
         recovered = self.hopkins_recovered[self.hopkins_recovered['Country/Region'] == country].sum().iloc[4:]
         recovered = np.array(recovered, dtype=np.int64)/rescaling
-        cumulative = self.get_cumulative(country, rescaling)
+        cumulative = self.cumulative(country, rescaling)
 
-        total_population = np.full_like(cumulative, self.indicators.loc[self.iso[country], 'SP.POP.TOTL'])/rescaling
+        total_population = np.full_like(cumulative, self.indicators.loc[pycountry.countries.get(name=country).alpha_3, 'SP.POP.TOTL'])/rescaling
         infected = cumulative - recovered
         susceptible = total_population - cumulative
         result = np.concatenate([susceptible.reshape(-1, 1), 
@@ -127,12 +201,55 @@ class CountryDataset:
                                  axis=1)
         return result
 
-    def get_cumulative(self, country, rescaling=1):
+    def cumulative(self, country, rescaling=1):
         cumulative = self.hopkins_cases[self.hopkins_cases['Country/Region'] == country].sum().iloc[4:]
+        if rescaling == -1:
+            rescaling = max(cumulative)
         return np.array(cumulative, dtype=np.int64)/rescaling
 
     def all_hopkins_countries(self, cases_cap=np.inf):
         return list(self.hopkins_cases['Country/Region'].unique())
-        
+
+    def all_ox_countries(self):
+        return list(self.oxford['CountryName'].unique())
+
+    def ox_for(self, country, rescaling=1):
+        if country not in self.oxford['CountryName'].unique():
+            raise Exception('Country is not in names')
+        result = self.oxford[self.oxford['CountryName'] == country].copy()
+        if rescaling == -1:
+            rescaling = result['ConfirmedCases'].max()
+        result['ConfirmedCases'] /= rescaling
+        return result
+
+    def stringency(self, country):
+        return self.ox_for(country)['StringencyIndexForDisplay'].values
 
 
+def integrate_df(real_trajectory, 
+                 variables, 
+                 predicted_variables, 
+                 sparse_filters,
+                 time_dependent_variables,
+                 constant_variables,
+                 weights,
+                 extrapolation=50, 
+                 max_degree=2):
+    real_trajectory = real_trajectory.append(real_trajectory.iloc[[-1]*extrapolation]).reset_index(drop=True)
+    
+    constant_terms = [real_trajectory.iloc[[0]].loc[:, inds].values.prod() for inds in constant_variables]
+    
+    constant_terms = np.multiply(np.array(constant_terms).reshape(-1, 1), weights)
+    predicted_values = [real_trajectory.iloc[0][predicted_variables].values]
+    not_predicted_time_dependent = real_trajectory[[a for a in time_dependent_variables if a not in predicted_variables]].values
+    
+    def time_dependent_terms(k):
+        current_filter = sparse_filters.copy()
+        values = list(predicted_values[k]) + list(not_predicted_time_dependent[k])
+        for i, val in enumerate(values):
+            current_filter[:, i*max_degree:(i + 1)*max_degree] *= val
+        return np.nanprod(current_filter, axis=1)
+    for k in range(len(real_trajectory.index) - 1):
+        current_filter = time_dependent_terms(k)
+        predicted_values.append(current_filter @ constant_terms)
+    return np.array(predicted_values)
