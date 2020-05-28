@@ -207,8 +207,8 @@ class CountryDataset:
             rescaling = max(cumulative)
         return np.array(cumulative, dtype=np.int64)/rescaling
 
-    def all_hopkins_countries(self, cases_cap=np.inf):
-        return list(self.hopkins_cases['Country/Region'].unique())
+    def all_hopkins_countries(self, cases_cap=0):
+        return list(self.hopkins_cases[self.hopkins_cases.iloc[:, -1] > cases_cap]['Country/Region'].unique())
 
     def all_ox_countries(self):
         return list(self.oxford['CountryName'].unique())
