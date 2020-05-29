@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>nonlinear</title>
+    <title>Non-polynomial fitting</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -51,8 +51,7 @@
                         <h3 id="New-formulation">New formulation<a class="anchor-link" href="#New-formulation">&#182;</a></h3>
                         <p>So far we used the original approach as described in the paper [1] where the candidate functions depend only on the state. The coefficients for each of these functions are linear with respect to the loss thus allowing for a linear least squares fitting. If we want to add more elaborate functions we need to use coefficients that are non linear with respect to the loss and use non-linear least squares instead.</p>
                         <h4 id="Rational-functions">Rational functions<a class="anchor-link" href="#Rational-functions">&#182;</a></h4>
-                        <p>In order to keep this work simple and exploratory we will begin by considering rational functions.</p>
-                        <p>The first kind of functions that we can consider for our problem are rational functions. We would have $f(x) = \frac{p(x)}{q(x)}$ where $p$ and $q$ are polynomials. We now have a very simple curve-fitting problem that we can solve using <code>scipy.optimize</code>'s <code>curve_fit</code> method.</p>
+                        <p>In order to keep this work simple and exploratory we will begin by considering rational functions. We would have $f(x) = \frac{p(x)}{q(x)}$ where $p$ and $q$ are polynomials. We now have a very simple curve-fitting problem that we can solve using <code>scipy.optimize</code>'s <code>curve_fit</code> method.</p>
                         <p>For the sake of simplicity we limit the maximum degree of the polynomials to 3:</p>
                         $$f(x) = \frac{a + b x + c x^2 + d x^3}{1 + e x + f x^2 + g x^3}$$<p>Where $a, b, c, d, e, f, g$ are the parameters that we will optimize. In the experiment we also use a rational function with a polynomial of a maximum degree of 3 in the numerator and 2 in the denominator and another with 2 for the denominator and 2 for the numerator.</p>
                         <!-- 
