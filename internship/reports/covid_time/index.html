@@ -1,6 +1,8 @@
 <html lang="en">
 
 <head>
+    <meta charset="utf-8" />
+    <title>Time dependent dynamics</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -53,33 +55,27 @@
                         \end{bmatrix}
                         $$<p>In this setting, if we use polynomial terms as candidate functions we will have the following kind of terms $(1, x, t, x^2, xt, t^2, x^3, x^2t, \dots)$</p>
                         <h2 id="Visual-results">Visual results<a class="anchor-link" href="#Visual-results">&#182;</a></h2>
-                        <p> In the plot below we can observe the vector field generated from the identified ODE for the country evolution. 
-                        On the right side the dynamics of the form $\dot{\mathbf{x}} = f(\mathbf{x})$ are displayed while on the left side we can see that the dynamics are time-dependent because the ODE is of the following form $\dot{\mathbf{x}} = f(\mathbf{x}, t)$.</p>
-                        <br/>
-                        
-                            <div style="display: table; table-layout: fixed; width:100%;
-    height:300px;">
-                                    <div style="position: relative; display: table-cell">
-                                        <canvas id="independent" width="400" height="300"></canvas>
-                                        <div id="svg-independent" style="position: absolute; 
-              left: 0px; 
-              top:0px;
-              z-index: 3;"></div>
-                                    </div>
-                                    <div style="position: relative; display: table-cell">
-                                        <canvas id="dependent" width="400" height="300"></canvas>
-                                        <div id="svg-dependent" style="position: absolute; 
-              left: 0px; 
-              top:0px;
-              z-index: 2;"></div>
-                                    </div>
+                        <p> In the plot below we can observe the vector field generated from the identified ODE for the country evolution.
+                            On the right side the dynamics of the form $\dot{\mathbf{x}} = f(\mathbf{x})$ are displayed while on the left side we can see that the dynamics are time-dependent because the ODE is of the following form $\dot{\mathbf{x}} = f(\mathbf{x}, t)$.</p>
+                        <br />
+                        <div style="display: table; table-layout: fixed; width:100%; height:300px;">
+                            <div style="position: relative; display: table-cell">
+                                <canvas id="independent" width="400" height="300"></canvas>
+                                <div id="svg-independent" style="position: absolute; left: 0px; top:0px; z-index: 3;">
                                 </div>
-                                <br/>
-                                <div class="control-row">
-                                    Country: <select class="countrydata" />
-                                </div>
-                                <script src="flow_anim.js"></script>
-                            
+                            </div>
+                            <div style="position: relative; display: table-cell">
+                                <canvas id="dependent" width="400" height="300"></canvas>
+                                <div id="svg-dependent" style="position: absolute; left: 0px; top:0px; z-index: 2;"></div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="control-row">
+                            Country: <select class="countrydata" />
+                        </div>
+                        <br />
+                        <p> In this experiment both sides were fitted with polynomial terms of a maximum degree of 3.</p>
+                        <script src="flow_anim.js"></script>
                     </div>
                 </div>
             </div>
