@@ -226,7 +226,9 @@ d3.json("https://raw.githubusercontent.com/Kipre/files/master/internship/data/ti
     updateCountry = () => {
         if (timer1 != null) {
             timer1.stop();
+            delete timer1;
             timer2.stop();
+            delete timer2;
         }
         var country = countrySelector.value;
         [width, height, timer1] = animation('#independent', (x, y) => F(x, y, allData[country]['independent']), marginLeft, allData[country]['data'].length);
