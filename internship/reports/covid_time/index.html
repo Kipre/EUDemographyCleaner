@@ -1,0 +1,90 @@
+<html lang="en">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <!-- Custom stylesheet, it must be in the same directory as the html file -->
+    <link rel="stylesheet" href="../../../nb.css">
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+</head>
+
+<body>
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+        <div class="container" id="notebook-container">
+            <div class="cell border-box-sizing text_cell rendered">
+                <div class="prompt input_prompt">
+                </div>
+                <div class="inner_cell">
+                    <div class="text_cell_render border-box-sizing rendered_html">
+                        <h1 id="System-identification-including-a-time-variable">System identification including a time variable<a class="anchor-link" href="#System-identification-including-a-time-variable">&#182;</a></h1>
+                        <h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2>
+                        <p>In this we want to study how including a time variable in our dynamics will change the identification. Our goal is to find a function $f$ so that the the number of cumulative cases in a given country $\mathbf{x}$ verifies the following ODE:</p>
+                        $$\mathbf{x}_{t+1} = f(\mathbf{x}_t, t)$$<p>The idea behind this model is that the systems that we study include lots of time-dependent characteristics. For example, modeling the COVID evolutions with a simple SIR model without time-dependent parameters gives very poor results while having an $R_0$ value with just three different values as a staircase function gives much better fitting.</p>
+                        <h2 id="Implementation">Implementation<a class="anchor-link" href="#Implementation">&#182;</a></h2>
+                        <p>We just add a variable $t$ to the system of variables so that our state is $\mathbf{x_t} = (x_t, t)$ and our observed data becomes:</p>
+                        $$X =
+                        \begin{bmatrix}
+                        x_0 &amp; 0 \\
+                        x_1 &amp; 1 \\
+                        x_2 &amp; 2 \\
+                        \vdots \\
+                        x_m &amp; m
+                        \end{bmatrix}
+                        $$<p>In this setting, if we use polynomial terms as candidate functions we will have the following kind of terms $(1, x, t, x^2, xt, t^2, x^3, x^2t, \dots)$</p>
+                        <h2 id="Visual-results">Visual results<a class="anchor-link" href="#Visual-results">&#182;</a></h2>
+                        <p> In the plot below we can observe the vector field generated from the identified ODE for the country evolution. 
+                        On the right side the dynamics of the form $\dot{\mathbf{x}} = f(\mathbf{x})$ are displayed while on the left side we can see that the dynamics are time-dependent because the ODE is of the following form $\dot{\mathbf{x}} = f(\mathbf{x}, t)$.</p>
+                        <br/>
+                        
+                            <div style="display: table; table-layout: fixed; width:100%;
+    height:300px;">
+                                    <div style="position: relative; display: table-cell">
+                                        <canvas id="independent" width="400" height="300"></canvas>
+                                        <div id="svg-independent" style="position: absolute; 
+              left: 0px; 
+              top:0px;
+              z-index: 3;"></div>
+                                    </div>
+                                    <div style="position: relative; display: table-cell">
+                                        <canvas id="dependent" width="400" height="300"></canvas>
+                                        <div id="svg-dependent" style="position: absolute; 
+              left: 0px; 
+              top:0px;
+              z-index: 2;"></div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="control-row">
+                                    Country: <select class="countrydata" />
+                                </div>
+                                <script src="flow_anim.js"></script>
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
