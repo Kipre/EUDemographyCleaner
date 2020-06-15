@@ -26,13 +26,13 @@ The most common way of modeling a disease is through compartmental models. They 
 The interaction processes between the different compartments are governed by a set of simple ODEs. 
 This framework was introduced almost a century ago and is flexible enough to model most of the effects and controls of the disease. The classic epidemiological approaches will be further introduced in section \ref{sec:class}.
 
-In this work we deliberately choose to not use these  classic models and concentrate on the identification of dynamic processes in the evolution of the disease with very little a priori.
+In this work we deliberately choose to not base our modeling on these classic techniques and concentrate on the identification of dynamic processes in the evolution of the disease with very little a priori.
 The different approaches considered in this work all gravitate around an algorithm proposed in \cite{sindy} called {\em system identification of nonlinear dynamics}. 
 The details about this methodology will be explained in section \ref{sec:sindy}. 
 In a few words, this algorithm allows to identify the dynamics from observed data through a sparse regression and based on a user-defined library of candidate functions. 
 Throughout this work, we will use this algorithm in combination with datasets collected from different sources in order to better understand both the dynamics of the pandemic and the specificities as well as the limits of this algorithm. 
 
-We deliberately limit ourselves to this algorithm and 
+This algorithm can allow us to do all kinds of interesting analyses. 
 
 \section{Classic modeling methods}\label{sec:class}
 
@@ -55,7 +55,7 @@ Secondly, knowing that the different age groups of the population are affected i
 
 Thirdly, one very classic way of making the models more complex and precise is by subdividing the region of interest into smaller sub-regions and to have a state for each of these sub-regions. For example a country can be sub-divided into regions or counties. Some parameters traducing the migrations between these regions can be introduced. One can imagine that this kind of modeling can be very useful for policy-makers to adopt more precise and local measures. Few examples of such models can be found in \cite{spatial}. These models are usually called {\em spatial SIRs}. 
 
-Finally, there is no limitation to the complexity of the models that can be built on the basis of the SIR models. The can be combined and adapted to a very wide range of problems. SAn example of such use might include adding the relevant compartments to model the usage of a tracking mobile app that facilitates the isolation of people who have interacted with another infected person.
+Finally, there is no limitation to the complexity of the models that can be built on the basis of the SIR models. They can be combined and adapted to a very wide range of problems. An example of such use might include adding the relevant compartments to model the usage of a tracking mobile app that facilitates the isolation of people who have interacted with another infected person.
 
 \subsection{Other modeling techniques}
 
@@ -63,20 +63,20 @@ The modeling of infectious diseases is however not limited to the aforementioned
 
 \begin{itemize}
 
-\item Statistical models are more inclined towards capturing the random nature of the infectious diseases. Thorough reviews of these approaches can be found in \cite{}.
+\item \textbf{Statistical models} are more inclined towards capturing the random nature of the infectious diseases. Thorough reviews of these approaches can be found in \cite{}.
 
-\item Gravity models can be used as standalone models or in conjunction with the compartmental approach and are called "gravity" models because they rely on considering the effect of distance and the size of donor and recipient communities \cite{}. 
+\item \textbf{Gravity models} can be used as standalone models or in conjunction with the compartmental approach and are called "gravity" models because they rely on considering the effect of distance and the size of donor and recipient communities \cite{}. 
 
-\item Network-based models are built on the assumption that the spread of human disease follows its specified contact or spreading paths such as transportation or social contact networks \cite{}.
+\item \textbf{Network-based models} are built on the assumption that the spread of human disease follows its specified contact or spreading paths such as transportation or social contact networks \cite{}.
 
-\item Agent-based models are based on the belief that individuals and their mutual differences are the key to understanding the spread of an infection \cite{}.
+\item \textbf{Agent-based models} are based on the belief that individuals and their mutual differences are the key to understanding the spread of an infection \cite{}.
 \end{itemize}
 
 Additionally, hybrid approaches combining different methods are considered in the literature \cite{} as well as more computationally-oriented methods like cellular automata \cite{}. A thorough review about the modeling of infectious diseases can be found in \cite{}.
 
 \section{Sparse identification of nonlinear dynamics}\label{sec:sindy}
 
-In this section the central algorithm used in this work will be introduced. This algorithm lies on the crossroads between dynamic modeling and machine learning. On one hand this algorithms is able to fit the observed data much like more classic machine learning algorithms would do. And on the other hand it does so by finding governing ODEs in observed data. In theory this allows to model an arbitrarily complex phenomenon while having the interpretability of a set of simple ODEs. We will see that in practice, when dealing with real-world data and complex problems this technique doesn't hold up to these expectations.
+In this section the central algorithm used in this work will be introduced. This algorithm lies on the crossroads between dynamic modeling and machine learning. On one hand this algorithm is able to fit the observed data much like more classic machine learning algorithms would do. And on the other hand it does so by finding governing ODEs in observed data. In theory this allows to model an arbitrarily complex phenomenon while having the interpretability of a set of simple ODEs. We will see that in practice, when dealing with real-world data and complex problems this technique doesn't hold up to these expectations.
 
 Machine learning is an extremely young branch of science as opposed to dynamic modeling, because mathematicians, physicists and engineers have been modeling physical phenomena for centuries. The shift that happened in the recent years is that (1) computational power has significantly increased and now allows for computations of unprecedented complexity and (2) observation data is getting increasingly available as sensor prices go down. The combination of these two tendencies opens new horizons for modeling increasingly complex processes.  
 
@@ -135,7 +135,7 @@ The whole methodology to discover the dynamics can be divided into 3 steps. Let'
 
 \end{enumerate}
 
-This is the very general definition of the algorithm, in our case we used almost exclusively polynomial terms of the state as candidate functions. For example in our state is $\mathbf{x} = (s, i, r)$ like in the compartmental models, then our candidate function be: 
+This is the very general definition of the algorithm, in our case we used almost exclusively polynomial terms of the state as candidate functions. For example if our state is $\mathbf{x} = (s, i, r)$ like in the compartmental models, then our candidate function be: 
 $\mathbf{x} \mapsto 1,
 \mathbf{x} \mapsto s,
 \mathbf{x} \mapsto i,
@@ -152,7 +152,7 @@ $\mathbf{x} \mapsto 1,
 \mathbf{x} \mapsto x^n$. A more thorough discussion about polynomial terms is held in section \ref{sec:polynomials}.
 
 Another remark is that this algorithm works equally well with an iterative formulation as it does with the differential one like in equation \ref{eq:diff}.
-In this case we would have a series of observations ($\mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_m$) and the goal is still the same but we want $f$ to express the dynamics in an iterative way:
+In the iterative case we would have a series of observations ($\mathbf{x}_1, \mathbf{x}_2, \dots, \mathbf{x}_m$) and the goal is still the same but we want $f$ to express the dynamics in an iterative way:
 
 \begin{equation}\label{eq:it}
 \mathbf{x}_{t+1} = f(\mathbf{x}_t)
@@ -160,14 +160,50 @@ In this case we would have a series of observations ($\mathbf{x}_1, \mathbf{x}_2
 
 This is slightly more convenient because it prevents us from numerically computing a derivative which obviously introduces some errors.
 
+This work was further extended in a second paper \cite{sindypde} that is more centered on PDE identification instead of working with ODEs. 
+
+\subsection{Hyperparameters}
+
+If we consider this algorithm as a machine learning methodology then its hyperparameters would be:
+\begin{enumerate} 
+    \item the choice of the set of candidate functions;
+    \item the cutoff value.
+\end{enumerate}
+
+Both these parameters deserve a discussion.
+
+\subsubsection{Cutoff value}
+
+We previously mentionned that the cutoff value is the parameter used for thresholding the small weights in the learning process. In fact, this parameter allows us to choose the sparsity of the resulting model and thus choose the required balance between accuracy and complexity of the model.
+
+In practice, due to the low computational cost of this algorithm\footnote{Less than one second for 100 data points and 10 candidate functions on our i7 machine.} \com{TODO: run the timing} we are able to compute the results for a very wide range of cutoff values and to choose the one that we prefer. Usually the one satisfying the philosophy of "Ockham's razor", in other words the lowest cutoff value that has satisfying fitting of the data. An example of such a plot can be seen on figure \ref{fig:cutoff}. 
+
+\com{further discussion}
+
+\subsubsection{Candidate functions}\label{sec:polynomials}
+
+In a simple problem, we just want our candidate function to include the real dynamics. 
+The authors mostly use polynomial terms as candidate functions because the dynamics they identify in the examples are actually polynomial terms of the variables of the state. 
+In the 7 examples of identification that they provide, the candidate functions always include the real dynamics. 
+
+In more general cases and more complex problems, we cannot guarantee the same thing. 
+And instead we use polynomials as approximators and hope that they will be expressive enough to capture the evolution. 
+Obviously, it is very important to make this distinction between making a library large enough to include the real dynamics and using polynomials as universal approximators. 
+
+Our choice of polynomial basis functions was motivated by the fact that the authors propose their usage, that they are quite simple to use and understand and finally that the study of basis functions is not completely in the scope of this work. Consequently, the question of whether they are the more relevant candidate functions in our case remains not fully answered. Indeed an elaboration was explored by using rational functions instead of polynomials. The full discussion is available in appendix \ref{app:rational}. Our main conclusion from this superficial experiment was that with similar maximum degrees, rational functions provided little to no advantage over the polynomial ones in terms of mean squared deviation while requiring a less-convenient non-linear least squares fitting.
+
+
+
+\section{Data}
+
+Data plays a crucial role in our approach because our aim is to base all the modeling on the observation data. In this section we will describe what kind of data we used for our modeling.
+
+\subsection{Observing the pandemic}
+
+Because this pandemic has no precedents, the metrics people used to track the state of the disease have evolved during the course of the disease. For example, on the \com{date} the redefinition of what a "case of infection" is according to the WHO led to a huge spike in new cases in China \cite{}. 
 
 \section{Methodologies}
 
 \section{Remarks}
-
-\paragraph{Polynomial terms} 
-In the original paper, the authors mostly use polynomial terms as candidate functions because the dynamics they identify in the examples are actually polynomial terms of the variables of the state. In the 7 examples of identification that they provide, the candidate functions always include the real dynamics. 
-
-In our case we cannot guarantee the same thing. And instead we use polynomials as approximators and hope that they will be expressive enough to capture the evolution. Obviously, it is very important to make this distinction between making a library large enough to include the real dynamics and using polynomials as universal approximators. 
 
 \end{document}
