@@ -45,6 +45,9 @@ This algorithm can allow us to do all kinds of interesting analyses.
 \section{Classic modeling methods}\label{sec:class}
 
 It was briefly mentioned in the introduction that the most classic way of modeling an infectious disease is based on dividing the population into compartments. 
+
+\subsection{SIR models}
+
 The most basic model of this kind is the SIR model that tracks the number of susceptible, infected and recovered people in the sample. 
 It was originally proposed in \cite{sir} and has become the most widely used epidemiological model \com{discussion about micro and macro levels}. 
 This very simple model is formulated by the following set of equations:
@@ -108,6 +111,9 @@ A thorough review about the modeling of infectious diseases can be found in \cit
 \section{Sparse identification of nonlinear dynamics}\label{sec:sindy}
 
 In this section the central algorithm used in this work will be introduced. 
+
+\subsection{Algorithm}
+
 This algorithm lies on the crossroads between dynamic modeling and machine learning. 
 On one hand this algorithm is able to fit the observed data much like more classic machine learning algorithms would do. 
 And on the other hand it does so by finding governing ODEs in observed data. 
@@ -149,7 +155,6 @@ Our goal is to find a function $f$ such that:
 	\dot{\mathbf{x}}(t_m)
 	\end{bmatrix}
 	$$
-
 	here the dot notation denotes the time-derivative and it can be either directly observed or computed numerically.
 
 	\item The second step of this algorithm is the augmentation of the state with the candidate functions. 
@@ -205,13 +210,33 @@ In the iterative case we would have a series of observations ($\mathbf{x}_1, \ma
 \mathbf{x}_{t+1} = f(\mathbf{x}_t)
 \end{equation}
 
-This is slightly more convenient because it prevents us from numerically computing a derivative which obviously introduces some errors.
+This is slightly more convenient because it prevents us from numerically computing a derivative which obviously introduces some errors. This is achieved by dividing the two matrices in the following way:
+
+
+$$X = 
+\begin{bmatrix}
+\mathbf{x}_1 \\
+\mathbf{x}_2 \\
+\vdots \\
+\mathbf{x}_{m-1}
+\end{bmatrix}
+\text{ and }
+X_2 =
+\begin{bmatrix}
+\mathbf{x}_2 \\
+\mathbf{x}_3 \\
+\vdots \\
+\mathbf{x}_m
+\end{bmatrix}
+$$
+and minimizing $X_2 = \theta(X) \times \Xi$ instead.
+
 
 This work was further extended in a second paper \cite{sindypde} that is more centered on PDE identification instead of working with ODEs. 
 
-\subsection{Hyperparameters}
+\subsection{Hyper-parameters}
 
-If we consider this algorithm as a machine learning methodology then its hyperparameters would be:
+If we consider this algorithm as a machine learning methodology then its hyper-parameters would be:
 \begin{enumerate} 
     \item the choice of the set of candidate functions;
     \item the cutoff value.
@@ -269,18 +294,19 @@ Tracking the evolution of the pandemic through the cumulative number of people i
 
 The most widely used resource for tracking the number of cases worldwide is the repository of the John Hopkins University. They have collected the numbers from all over the world and provided required APIs for all researchers and visualization dashboards to use. They also provide information about recovered cases but as mentioned earlier, the quality of the data is very doubtful.
 
-\subsection{Observing the government measures}
+\subsection{Observing the government measures}\label{sec:stringency}
 
 In our modeling approach we also need to take into account the measures that were taken by the governments to prevent further spreading of the disease like school closing, travel ban, work from home recommendations and alike. 
 For this we relied on the information gathered by a group of researchers from Oxford \cite{ox}. 
-They tracked the measures that were implemented in most of the countries worldwide and provided a convenient way to retrieve this n  information as indicators and also they compiled all of this information into a stringency index. 
+They tracked the measures that were implemented in most of the countries worldwide and provided a convenient way to retrieve this n  information as indicators and also they compiled all of this information into a "stringency" index. 
 This index is a linear combination of all the indicators that they observed and it's meant to evaluate how strict are the measures implemented by the governments but it has no information about their effectiveness or performance.
 
-\subsection{Other information}
+\subsection{Other information}\label{sec:worldbank}
 
 Since the adopted methodology of this work heavily relies on the principles of machine learning and data science, we included additional datasets into our modeling because usually, the more relevant information we have, the better the results. 
-For example, in one of our experiments we chose to make a model that would take into account the trajectories of all available countries. 
+For example, in one of our experiments we chose to make a model that would take into account the trajectories of all available countries (more about this in section \ref{sec:global}). 
 In order to inform the model about the present country, we added more that 40 indicators relevant for the pandemic about the country (health, hygiene and demographic descriptors). 
+A few examples of those descriptors can be 
 This information was available to us through the World Bank API \cite{}.
 
 \section{Modeling}
@@ -290,19 +316,15 @@ In this section we will introduce the different experiments that we did with the
 \subsection{Cumulative number of cases and forecasting}
 
 The most obvious and easy way of using the system identification algorithm with COVID-19 data is to model the number of cumulative cases in a single country. If we define $\mathbf{x}_t$ as the number of cases in the country of interest at day $t$. Then, we want to find a function $f$ so that:
-
 $$\mathbf{x}_{t+1} = f(\mathbf{x}_t)$$
 
 When using polynomial terms as candidate functions we would look for a purely polynomial formulation of the dynamics because there is only one variable in the state. 
 Which can be mathematically written as:
-
 $$\mathbf{x}_{t+1} = \sum_{k=0}^p \xi_k \mathbf{x}_t^k$$
-
 where $p$ is the maximum degree of the polynomial terms.
 
 For example we can apply this method to the evolution of the cumulative number of cases in Germany an this is the formula we will end-up with \com{rerun}:
 $$\mathbf{x}_{t+1} = 4.07 \cdot 10^{-3} + 1.24 \cdot \mathbf{x}_t - 3.33 \cdot 10^{-2} \cdot \mathbf{x}_t^2 + 1.66 \cdot 10^{-3} \cdot \mathbf{x}_t^3 - 3.21 \cdot 10^{-5} \cdot \mathbf{x}_t^4$$
-
 assuming a maximum degree of 4. 
 The figure \ref{fig:germany} represents the trajectory of the real data as well as the trajectory of the identified model. 
 One can see that this model fits fairly well the observation data and that the extrapolation looks fairly plausible. 
@@ -326,12 +348,140 @@ In terms of errors both methods are also quite similar but the ARIMA model is st
 
 The ARIMA forecasting model requires that the time-series verifies some assumptions like stationarity and that there are no other predictors \com{verify}. 
 The statistical model is also not very easy to parametrize and requires the data to be preprocessed for better results.
-Given that we haven't done all of these manipulations it would not be fair to quantitatively compare the results.
+Given that we have done a very minimalist subset of these manipulations it would not be fair to quantitatively compare the results.
+This poor parametrization is due to the fact that it requires a good knowledge of these statistical tools.
 In other worlds: there is a big chance that the parameters of the ARIMA model are sub-optimal and thus we conclude that system identification is not likely to give better forecasting results than the statistical model because in the current parametrization it is already worse.
 
+\subsection{Control measures}
 
-\section{Methodologies}
+In this part we will report about the second experiment: adding control measures to the equation in order to find how the dynamics are influenced by these. 
+We rely on the information provided by \cite{} as described in section \ref{sec:stringency}.
+Since these indicators are represented as ordinal values we can directly include them into the equation as variables: 
+$$\mathbf{x}_{t+1} = f(\mathbf{x}_t, i_1, i_2, \dots, i_7)$$
+where $i_1, i_2, \dots, i_8$ are the government response indicators. 
+They are encoded as integers from 0 to 4 representing the strictness of the measure. The table \ref{tab:stringency} shows a list of all those indicators.
 
-\section{Remarks}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{ |c|c| } 
+ \hline
+ Variable & Name \\ 
+ \hline
+$i_1$ & School closing \\
+$i_2$ & Workplace closing \\
+$i_3$ & Cancel public events \\
+$i_4$ & Restrictions on gatherings \\
+$i_5$ & Close public transport \\ 
+$i_6$ & Stay at home requirements \\ 
+$i_7$ & Restrictions on internal movement \\
+
+ \hline
+\end{tabular}
+\caption{Indicators of government measures}
+\label{tab:stringency}
+\end{table}
+
+The motivation behind this approach is that the measures implemented by most of the countries had a huge impact on the evolution of the disease. 
+We have seen that modeling the trajectories without taking the control into account is possible but has very limited results and applications.
+Here we want to see if we can discover what kind of effects are introduced into the evolution when the controls are applied.
+
+In order to do this, we augment our state with the control variables and we consider them as non-predicted variables which means that we only seek to predict the cumulative number of cases. 
+This can be achieved by adding the controls as columns in our $X$ matrix:
+
+$$X =
+\begin{bmatrix}
+\mathbf{x}_1 & i_1(1) & i_2(1) & \cdots & i_7(1) \\
+\mathbf{x}_2 & i_1(2) & i_2(2) & \cdots & i_7(2) \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+\mathbf{x}_{m-1} & i_1(m-1) & i_2(m-1) & \cdots & i_7(m-1) \\
+\end{bmatrix}
+$$
+
+Then, the augmented matrix $\theta(X)$ will be created with polynomial terms.
+Applying polynomial candidate functions in equivalent to retrieving all the combinations with replacement of $r$ elements where $r$ is the maximum degree of the polynomial terms and doing the product of the sample. 
+And since the number of combinations with replacement is equal to $C^R(n,r) = \dfrac{(n + r - 1)!}{ r! (n - 1)! }$ we are going to end-up with $C^R(9, 3) = 165$ candidate functions (assuming a maximum degree $r=3$). 
+Here $n$ represents the number of variables and it is equal to $9=1+1+7$ because we introduce a 1 constant into the variables wich allows the polynomial terms to be of all required degrees. 
+A more thourough explanation of the implementation of the polynomial terms can be found in appendix \ref{app:polynomials}.
+
+\paragraph{Simplification}
+Polynomial candidate functions include lots of terms that are constant with respect to the cumulative number of cases $\mathbf{x}$ (for example $1, i_1, i_2, \dots, i_7, i_1^2, i_1 \times i_2, \dots, i_7^r$) and in order to simplify the problem we can make the assumption that there is no constant part in the dynamics. 
+In fact, we can justify this by the observation that there is no reason for the cumulative cases to augment if there were no cases on the day before.
+Thus, we drop all of these terms from the augmented matrix we keep only those that are not constant with respect to the number of cumulative cases ($\mathbf{x}, \mathbf{x} i_1, \mathbf{x} i_2, \dots, \mathbf{x} i_7, \mathbf{x}^2, \mathbf{x}^2 i_1, \dots, \mathbf{x}^r$).
+With this trick we are able to leave out \com{some number} candidate functions which makes the model considerably simpler.
+
+\paragraph{Results} 
+
+This 
+
+\subsection{Global model}\label{sec:global}
+
+The third experiment is about trying to have a model that governs the dynamics of the evolution of the number of cumulative cases in all available countries.
+This approach was mainly motivated by the fact that in the early stages of the epidemic it would've been very interesting to have a general idea of how the pandemic will evolve.
+One way of achieving this is by making a model that is able to collect knowledge from the most advanced trajectories (at that time China and Korea) and to apply the learned patterns to other countries.
+This global approach is an attempt at extracting common knowledge from the trajectories.
+
+From a machine learning point of view, in order to implement this approach, we need to inform the model about the country we are currently trying to make predictions for.
+We chose to encode the countries as vectors of about 30 dimensions with the country indicators that we gathered from the World Bank Database as described in section \ref{sec:worldbank}.
+The "stringency" index was also added to inform the model about the measures.
+We end-up with a total of more than 40 variables and as explained in the previous sub-section this will lead to a huge number of polynomial terms.
+Consequently, the simplification that was already described earlier where we do not consider the terms that are constant with respect to the state will be applied here as well.
+To sum things up, we are once again looking for the best function $f$ such that:
+$$\mathbf{x}_{t+1} = f(\mathbf{x}_t, s_t, c_1, c_2, \dots, c_{40})$$
+where $s_t$ is the stringency of the country at day $t$ and $c_1, c_2, \dots, c_{40}$ are the country indicators (they are not time-dependent).
+
+\paragraph{Twofold goal} 
+It is important to highlight the fact that this current global approach is very ambitious.
+On one hand we want the model to learn the usual sigmoidal evolutions of the number of cumulative cases.
+On the other hand we want the model to learn the mapping from the vector representation of the country into the characteristics of the evolution of the disease in this country. 
+In other words, we expect the model to identify the patterns between the descriptive indicators and the impact of the pandemic on the country.
+For example, the model could learn something like: the smaller the HDI the bigger the overall number of cases (or more realistically the opposite relation). 
+We also expect the model to understand more simple things: since the total population of the country is also in the indicators we want the model to understand that the number of cumulative cases cannot surpass the total population. 
+More importantly, the two aforementioned tasks are fundamentally different and asking a single model to handle both of them at the same time might not be completely appropriate.
+Indeed, one task is time-series forecasting and the other is just general regression.
+
+
+We followed a standard practice for machine learning where we divide the dataset into a train and test subset. 
+Thus we kept 20\% of the countries out of the training data in order to verify the performance of our model.
+Our testing strategy is to give the vector representation of a country and some initial value of cumulative cases as well as the real stringency index and then we can see if the generated trajectory makes sense compared to the real one.
+This means that we look at the trajectories that the model predicts for countries it has never seen, allowing us to verify that the model works for our initial goal that was to predict the overall evolution from the country indicators.
+
+\paragraph{Results} 
+Unfortunately, we were not able to make this approach work, similarly to the precedent experiment we observe that the model highly overfits to the training data.
+This mean that on the training countries the model is suspiciously good whereas on the test set the trajectories do not make sense. 
+A more precise presentation of the results can be found in appendix \ref{app:global}.
+
+\paragraph{Overfitting}
+One of the ways to tackle the overfitting was to compute a "relevance" score for all of the country indicators and to choose the most relevant subset of 
+indicators in order to decrease the number of polynomial terms and consequently the complexity of the model. 
+After a full normalization of all the input variables we can be sure that the learned parameters fairly represent the overall weight of the candidate function in the formula. 
+Then, for each variable, we can compute the sum of the absolute values of the coefficients of all the candidate functions where this variable is present.
+We end-up with a score representative of the importance of this variable in the learned formula. 
+It is natural to make a ranking of the variables based on this score. 
+Interestingly, we observed that the ordering between different runs was not very consistent which strengthened our belief that the model failed to learn a general model.
+
+
+\subsection{Other approaches}
+
+We didn't limit ourselves to the 3 experiments explained above, we also considered the following formulations:
+
+\begin{itemize} 
+	\item Time dependent dynamics: $\mathbf{x}_{t+1} = f(\mathbf{x}_t, t)$. 
+	The idea behind this approach is that the parameters of the evolution heavily changed over the course of the pandemic when the measures were applied. 
+	The intention was to allow the model to understand this time-dependence by providing the time variable. 
+	The risk that we introduce with this is that the learned formula becomes completely time-dependent and is no longer a differential equation.
+	Appendix \ref{app:time-dependent} gives a better understanding of this experiment and shows some nice vector-field visualizations.
+
+	\item Modeling based around SIR quantities, by having a richer state like $\mathbf{x} = (s, i, r)$ or even more elaborate. 
+	The motivation behind this approach is the analogy with the SIR models.
+	They require at least these 3 quantities to explain the evolution which means that looking exclusively at the number of cumulative cases might not be enough to explain the dynamics. 
+
+\end{itemize}
+
+\section{Discussions}
+
+\subsection{Identifying dynamics from SIR quantities}
+
+
 
 \end{document}
