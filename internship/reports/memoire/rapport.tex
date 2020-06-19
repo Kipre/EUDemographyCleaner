@@ -52,11 +52,13 @@ The most basic model of this kind is the SIR model that tracks the number of sus
 It was originally proposed in \cite{sir} and has become the most widely used epidemiological model \com{discussion about micro and macro levels}. 
 This very simple model is formulated by the following set of equations:
 
-\begin{align*}
+\begin{equation}\label{eq:sir}\
+\begin{split}
 \dot{S} = &- \beta SI \\
 \dot{I} = &\beta SI - \gamma I \\
 \dot{R} = & \gamma I
-\end{align*}
+\end{split}
+\end{equation}
 
 where $\beta$ and $\gamma$ are the parameters of the disease. 
 $\sfrac{1}{\gamma}$ is the time a person remains infectious while $\beta$ quantifies the infectiousness of the disease. 
@@ -278,7 +280,7 @@ Our main conclusion from this superficial experiment was that with similar maxim
 Data plays a crucial role in our approach because our aim is to base all the modeling on the observation data.
 In this section we will describe what kind of data we used for our modeling.
 
-\subsection{Observing the pandemic}
+\subsection{Observing the pandemic}\label{sec:jhu}
 
 Because this pandemic has no precedents, the metrics people used to track the state of the disease have evolved during the course of the disease. 
 For example, on the \com{date} the redefinition of what a "case of infection" is according to the WHO led to a huge spike in new cases in China \cite{}. 
@@ -468,19 +470,60 @@ We didn't limit ourselves to the 3 experiments explained above, we also consider
 \begin{itemize} 
 	\item Time dependent dynamics: $\mathbf{x}_{t+1} = f(\mathbf{x}_t, t)$. 
 	The idea behind this approach is that the parameters of the evolution heavily changed over the course of the pandemic when the measures were applied. 
-	The intention was to allow the model to understand this time-dependence by providing the time variable. 
+	The intention was to allow the model to understand this time-dependence by providing the time variable instead of explicitly providing the stringency like we did before with very limited success. 
 	The risk that we introduce with this is that the learned formula becomes completely time-dependent and is no longer a differential equation.
 	Appendix \ref{app:time-dependent} gives a better understanding of this experiment and shows some nice vector-field visualizations.
 
 	\item Modeling based around SIR quantities, by having a richer state like $\mathbf{x} = (s, i, r)$ or even more elaborate. 
 	The motivation behind this approach is the analogy with the SIR models.
-	They require at least these 3 quantities to explain the evolution which means that looking exclusively at the number of cumulative cases might not be enough to explain the dynamics. 
+	They require at least these 3 quantities to explain the evolution which means that looking exclusively at the number of cumulative cases might not be enough to explain the dynamics. For some reason this approach didn't work at all. We will discuss a few reasons why this failed to enhance the results in section \ref{sec:sirfail}.
+
+	\item Actual SIR parameter identification. During this work, it was necessary to compare the behavior of our models to the classic SIR models. For this reason we found ourselves fitting parameters for compartmental models. Both SIR and SEIR models were fitted. The encountered challenges are discussed in section \ref{sec:sirdiscu}
 
 \end{itemize}
 
 \section{Discussions}
 
-\subsection{Identifying dynamics from SIR quantities}
+\subsection{Identifying dynamics from SIR quantities}\label{sec:sirfail}
+
+We briefly mentioned above that when using a state $\mathbf{x} = (s, i, r)$ the results are rather disappointing. In this section we are going to try to give a few elements on why this happens. 
+
+\paragraph{Generated data}
+
+An easy learning setting can achieved by using generated data instead of real-world observation data from the COVID-19. 
+For example, one can integrate the SIR ODEs with some predetermined parameters and initial conditions in order to check that we are able to recover the parameters from the fitting.
+The easiest integration would be with constant parameters, as opposed to a real-world scenario where the parameters are dependent on the measures and consequently they are not constant.
+This kind of experimentation with fake data is very useful because it allows us to have a better idea about the performance of the tools and methodologies that we use.
+We applied this kind of sandbox experimentation for the identification of the dynamics from generated SIR trajectories and surprisingly we never managed to recover the original ODEs.
+Depending on the cutoff value we can have either a very complex or very simple formula be we never managed to converge to the original formulation as described in equation \ref{eq:sir}. 
+Nevertheless, if the formula has more than 4 or 5 terms the system is able to closely fit the data while having a different ODE and the more complex the system is the better the fitting.
+Then when the cutoff value surpasses some threshold, the system becomes too sparse and the model no longer fits the data.
+
+Although we didn't give an exact answer to why adding the SIR quantities to the state doesn't give better results, we gave a very important element that almost excludes the possibility of doing such fitting with the methodologies of this work. 
+On way to tackle this problem could be to find a more sophisticated way to regularize the model than the sparse regression with the cutoff value we are currently using.
+Indeed, we suspect that this kind of regularization might be susceptible to get stuck in local minima because of the too early exclusion of important terms.
+
+\paragraph{Real data} 
+Needless to say that if the methodology doesn't work with some very simple generated scenarios there is no chance that it will work with real trajectories. 
+However, we can use this opportunity to discuss some of the challenges that are introduced by real data.
+We discussed some of the limits in the observation data in section \ref{sec:jhu}.
+In the case of fitting from an SIR state the results are even more influenced by the inherent biases of the data.
+The clearest example of such biases can be seen in the measurement of the number of recovered people that usually matches the theoretical number very loosely. 
+This error is introduced by the fact that in most of the countries, there is no checking of whether an infected and quarantined person is still infectious or not.
+Consequently the numbers are updated after some time when officials decide to announce that some part of the infected population can be considered recovered.
+For this reason, it is not very convenient to base the modeling on such data.
+
+The second evident challenge that is introduced with real data is the fact that that the basic reproduction value $R_0$ is time-dependent.
+When fitting the parameters of an actual SIR model we can take this time dependency into account and handle it by fitting a sliding window or a model of the basic reproduction number.
+But in the case of system identification with no a priori it is much harder to do so.
+
+\subsection{Challenges with SIR fitting}\label{sec:sirdiscu}
+
+The major problem when fitting parameters for SIR models is the discrepancy between real observations and the parameters of the model.
+The number of infected people "I" is not available in our data sources, instead we have the number of total people that were infected. 
+In order to find "I", we can say that it is equal to the number of cumulative cases minus the number of recovered people, but this works only for the countries where the number of recovered people is reliable.
+And then the problem is that in reality if someone is tested positive then he is immediately quarantined whereas the model supposes that this person might infect other people before he recovers from the disease.
+That's why the actual time someone remains in the "I" compartment is smaller than the usual lifespan of the virus.
 
 
 
