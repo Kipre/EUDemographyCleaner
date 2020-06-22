@@ -31,7 +31,7 @@ The goal of this work is to explore the usage of data-driven system identificati
 The most common way of modeling a disease is through compartmental models. 
 They divide the population into different compartments like susceptible (not yet infected by the disease), exposed (infected but not yet infectious), infected, recovered. 
 The interaction processes between the different compartments are governed by a set of simple ODEs. 
-This framework was introduced almost a century ago and is flexible enough to model most of the effects and controls of the disease. 
+This framework was introduced almost a century ago and is flexible enough to model most of the effects and controls of the disease and allows for arbitrarily complex models. 
 The classic epidemiological approaches will be further introduced in section \ref{sec:class}.
 
 In this work we deliberately choose to not base our modeling on these classic techniques and concentrate on the identification of dynamic processes in the evolution of the disease with very little a priori.
@@ -40,11 +40,16 @@ The details about this methodology will be explained in section \ref{sec:sindy}.
 In a few words, this algorithm allows to identify the dynamics from observed data through a sparse regression and based on a user-defined library of candidate functions. 
 Throughout this work, we will use this algorithm in combination with datasets collected from different sources in order to better understand both the dynamics of the pandemic and the specificities as well as the limits of this algorithm. 
 
-This algorithm can allow us to do all kinds of interesting analyses. 
+The ability to identify the dynamics from data is a fundamental challenge. 
+Even though the centuries of research have given a good understanding of surrounding physical and natural phenomena, there are plenty of more complex systems that are yet to be modeled. 
+Examples of such systems might be the patterns in weather and climate, epidemiology, power grids, etc. \cite{sindy}. 
+The present work is an attempt at applying such a dynamics identification tool on real world data. 
+However, it is important to highlight that, as mentioned earlier, the field we are targeting (epidemiology) already has some very powerful modeling frameworks. 
+In this context it is very hard to achieve interesting results in terms of modeling.
 
-\section{Classic modeling methods}\label{sec:class}
+The rest of this report is constructed as follows: in section \ref{sec:sir} we present the classic and already existing modeling approaches for epidemiology. In section \ref{sec:sindy} we thoroughly describe the system identification algorithm on which this work is based. Then in section \ref{sec:data} we present and discuss about the data that we use in our modeling. In the next section \ref{sec:modeling} we talk about the different modeling approaches that we envisioned for this work and describe the results. After this, in section \ref{sec:discussions} we comment on the results and try to give some elements about the reasons our methods are challenging to use. Finally we sum-up our conclusions in section \ref{sec:conclusion}.
 
-It was briefly mentioned in the introduction that the most classic way of modeling an infectious disease is based on dividing the population into compartments. 
+\section{Classing epidemiological modeling techniques}\label{sec:sir}
 
 \subsection{SIR models}
 
@@ -59,7 +64,6 @@ This very simple model is formulated by the following set of equations:
 \dot{R} = & \gamma I
 \end{split}
 \end{equation}
-
 where $\beta$ and $\gamma$ are the parameters of the disease. 
 $\sfrac{1}{\gamma}$ is the time a person remains infectious while $\beta$ quantifies the infectiousness of the disease. 
 The ratio $\sfrac{\beta}{\gamma}$ is usually denoted $R_0$ and called the basic reproduction value. 
@@ -180,7 +184,7 @@ Our goal is to find a function $f$ such that:
 	\xi_p
 	\end{bmatrix}
 	$$
-	After the best $\xi_1, \xi_2, \dots, \xi_p$ were identified, the very small $\xi$ (those that are under a certain threshold called {\em cutoff value}) can be removed from the equation alongside with the candidate function they correspond to. 
+	After the best $\xi_1, \xi_2, \dots, \xi_p$ were identified, the very small $\xi$ (those that have an absolute value under a certain threshold called {\em cutoff value}) can be removed from the equation alongside with the candidate function they correspond to. 
 	And then the least squares minimization can be ran again with the new subset of candidate functions and weights. 
 	After doing this thresholding a few times the algorithm converges.
 
@@ -233,7 +237,7 @@ X_2 =
 $$
 and minimizing $X_2 = \theta(X) \times \Xi$ instead.
 
-
+One can notice that this algorithm is very simple and sound quite intuitive.
 This work was further extended in a second paper \cite{sindypde} that is more centered on PDE identification instead of working with ODEs. 
 
 \subsection{Hyper-parameters}
@@ -241,17 +245,16 @@ This work was further extended in a second paper \cite{sindypde} that is more ce
 If we consider this algorithm as a machine learning methodology then its hyper-parameters would be:
 \begin{enumerate} 
     \item the choice of the set of candidate functions;
-    \item the cutoff value.
+    \item the cutoff value; 
 \end{enumerate}
-
-Both these parameters deserve a discussion.
+and both these parameters deserve a discussion.
 
 \subsubsection{Cutoff value}
 
 We previously mentioned that the cutoff value is the parameter used for thresholding the small weights in the learning process. 
 In fact, this parameter allows us to choose the sparsity of the resulting model and thus choose the required balance between accuracy and complexity of the model.
 
-In practice, due to the low computational cost of this algorithm\footnote{Less than one second for 100 data points and 10 candidate functions on our i7 machine.} \com{TODO: run the timing} we are able to compute the results for a very wide range of cutoff values and to choose the one that we prefer. 
+In practice, due to the low computational cost of this algorithm\footnote{20.2 ms ± 359 µs for 100 data points and 10 candidate functions on our i7 machine.} we are able to compute the results for a very wide range of cutoff values and to choose the one that we prefer. 
 Usually the one satisfying the philosophy of "Ockham's razor", in other words the lowest cutoff value that has satisfying fitting of the data. 
 An example of such a plot can be seen on figure \ref{fig:cutoff}. 
 
@@ -270,12 +273,12 @@ Obviously, it is very important to make this distinction between making a librar
 Our choice of polynomial basis functions was motivated by the fact that the authors propose their usage, that they are quite simple to use and understand and finally that the study of basis functions is not completely in the scope of this work. 
 Consequently, the question of whether they are the more relevant candidate functions in our case remains not fully answered. 
 Indeed an elaboration was explored by using rational functions instead of polynomials. 
-The full discussion is available in appendix \ref{app:rational}
+The full discussion is available in appendix \ref{app:rational}.
 Our main conclusion from this superficial experiment was that with similar maximum degrees, rational functions provided little to no advantage over the polynomial ones in terms of mean squared deviation while requiring a less-convenient non-linear least squares fitting.
 
 
 
-\section{Data}
+\section{Data}\label{sec:data}
 
 Data plays a crucial role in our approach because our aim is to base all the modeling on the observation data.
 In this section we will describe what kind of data we used for our modeling.
@@ -300,18 +303,18 @@ The most widely used resource for tracking the number of cases worldwide is the 
 
 In our modeling approach we also need to take into account the measures that were taken by the governments to prevent further spreading of the disease like school closing, travel ban, work from home recommendations and alike. 
 For this we relied on the information gathered by a group of researchers from Oxford \cite{ox}. 
-They tracked the measures that were implemented in most of the countries worldwide and provided a convenient way to retrieve this n  information as indicators and also they compiled all of this information into a "stringency" index. 
+They tracked the measures that were implemented in most of the countries worldwide and provided a convenient way to retrieve this information as indicators and also they compiled all of this information into a "stringency" index. 
 This index is a linear combination of all the indicators that they observed and it's meant to evaluate how strict are the measures implemented by the governments but it has no information about their effectiveness or performance.
 
 \subsection{Other information}\label{sec:worldbank}
 
 Since the adopted methodology of this work heavily relies on the principles of machine learning and data science, we included additional datasets into our modeling because usually, the more relevant information we have, the better the results. 
 For example, in one of our experiments we chose to make a model that would take into account the trajectories of all available countries (more about this in section \ref{sec:global}). 
-In order to inform the model about the present country, we added more that 40 indicators relevant for the pandemic about the country (health, hygiene and demographic descriptors). 
-A few examples of those descriptors can be 
+In order to inform the model about the present country, we added more than 40 indicators relevant for the pandemic about the country (health, hygiene and demographic descriptors). 
+A few examples of those descriptors can be: the human development index, the total population, the number of hospital beds per 1000 people, the number of people of 65 years and above, percentage of people using at least basic sanitation services, percentage of death caused by injury and so on.
 This information was available to us through the World Bank API \cite{}.
 
-\section{Modeling}
+\section{Modeling}\label{sec:modeling}
 
 In this section we will introduce the different experiments that we did with the tools and data that we described earlier.
 
@@ -333,8 +336,8 @@ One can see that this model fits fairly well the observation data and that the e
 Identified models in all countries are available in appendix \ref{app:all-countries}.
 
 Given that the identified model is extremely simple and has only one variable we cannot retrieve much useful information from it apart from the extrapolation of the number of cases in the next few days. 
-For that matter, the main application of these country-wise models is forecasting. 
-In order to have a better idea of how these very simple identified models compare to more advanced forecasting techniques we compared them to an ARIMA statistical model.
+For this reason, the main application of these country-wise models is forecasting. 
+In order to have a better idea of how these very simple identified models compare to more advanced forecasting techniques we compared them to an auto-regressive integrated moving average (ARIMA) statistical model. We chose this particular model because there are examples of authors using it for COVID forecasting \cite{arima}.
 
 The experiment was build as follows: we identified the dynamics of the cumulative number of cases in 118 countries with maximum degrees of the polynomials ranging from 2 to 7. 
 We kept the last two weeks of available data out of the training set in order to evaluate and compare the models on a one and two weeks forecast horizon.
@@ -342,7 +345,7 @@ We trained an ARIMA$(1, 2, 1)$ \com{check} model on the same training data in ea
 The trajectories in all countries were rescaled so that the last value of the time-series is 1. 
 This allows the models to more easily learn the parameters and to be able to fairly aggregate the mean squared deviation to do quantitative comparisons.
 
-The forecasts of the ARIMA model are fairly similar in terms of mean squared error to the result of the best performing identified system (the one that has the maximum degree that performs best on a given country). 
+\paragraph{Results} The forecasts of the ARIMA model are fairly similar in terms of mean squared error to the result of the best performing identified system (the one that has the maximum degree that performs best on a given country). 
 In terms of frequency of best results, the ARIMA model seems to have better results (in 55\% of the countries ARIMA has the best forecast for both forecast horizons). 
 In terms of errors both methods are also quite similar but the ARIMA model is still slightly better that the dynamic models. A more thorough description of the results of this experiment is available in appendix \ref{app:forecast}.
 
@@ -404,7 +407,7 @@ Then, the augmented matrix $\theta(X)$ will be created with polynomial terms.
 Applying polynomial candidate functions in equivalent to retrieving all the combinations with replacement of $r$ elements where $r$ is the maximum degree of the polynomial terms and doing the product of the sample. 
 And since the number of combinations with replacement is equal to $C^R(n,r) = \dfrac{(n + r - 1)!}{ r! (n - 1)! }$ we are going to end-up with $C^R(9, 3) = 165$ candidate functions (assuming a maximum degree $r=3$). 
 Here $n$ represents the number of variables and it is equal to $9=1+1+7$ because we introduce a 1 constant into the variables wich allows the polynomial terms to be of all required degrees. 
-A more thourough explanation of the implementation of the polynomial terms can be found in appendix \ref{app:polynomials}.
+A more thorough explanation of the implementation of the polynomial terms can be found in appendix \ref{app:polynomials}.
 
 \paragraph{Simplification}
 Polynomial candidate functions include lots of terms that are constant with respect to the cumulative number of cases $\mathbf{x}$ (for example $1, i_1, i_2, \dots, i_7, i_1^2, i_1 \times i_2, \dots, i_7^r$) and in order to simplify the problem we can make the assumption that there is no constant part in the dynamics. 
@@ -460,7 +463,7 @@ After a full normalization of all the input variables we can be sure that the le
 Then, for each variable, we can compute the sum of the absolute values of the coefficients of all the candidate functions where this variable is present.
 We end-up with a score representative of the importance of this variable in the learned formula. 
 It is natural to make a ranking of the variables based on this score. 
-Interestingly, we observed that the ordering between different runs was not very consistent which strengthened our belief that the model failed to learn a general model.
+Interestingly, we observed that the ordering between different runs was not very consistent which strengthened our belief that the model failed to learn the underlying patterns.
 
 
 \subsection{Other approaches}
@@ -478,11 +481,24 @@ We didn't limit ourselves to the 3 experiments explained above, we also consider
 	The motivation behind this approach is the analogy with the SIR models.
 	They require at least these 3 quantities to explain the evolution which means that looking exclusively at the number of cumulative cases might not be enough to explain the dynamics. For some reason this approach didn't work at all. We will discuss a few reasons why this failed to enhance the results in section \ref{sec:sirfail}.
 
-	\item Actual SIR parameter identification. During this work, it was necessary to compare the behavior of our models to the classic SIR models. For this reason we found ourselves fitting parameters for compartmental models. Both SIR and SEIR models were fitted. The encountered challenges are discussed in section \ref{sec:sirdiscu}
+	\item Actual SIR parameter identification. During this work, it was necessary to compare the behavior of our models to the classic SIR models. 
+	For this reason we found ourselves fitting parameters for compartmental models. Both SIR and SEIR models were fitted. The encountered challenges are discussed in section \ref{sec:sirdiscu}.
+
+	\item Neural networks were also used in this work for learning the $f$ function in a single country setting. 
+	In this case we just checked that a simple feed-forward NN was not better than the identified models. 
+	Even though NNs are able to approximate any function, in this case they appear overly complex compared to a simple polynomial. 
+	Their training time is vastly larger than system identification while not providing any interpretability.
+
+	The usage of a N-BEATS \cite{n-beats} model was also considered while not being completely in the scope of our work. 
+	This model was proposed a few years ago and it represents the beginning of fully deep models for time-series forecasting, as opposed to earlier models that where more inspired by statistical modeling. 
+	We didn't pursue this path very long because it would not have the same interpretability as our models had and it would be difficult to understand the patterns from the dynamic point of view. Finally, the N-BEATS model doesn't provide the possibility to add non-time-dependent data out of the box.
+	\com{TODO(ODE-net, Res-net)}
+
+	\item \com{TODO( $(n-1)(n-2)$)}
 
 \end{itemize}
 
-\section{Discussions}
+\section{Discussions}\label{sec:discussions}
 
 \subsection{Identifying dynamics from SIR quantities}\label{sec:sirfail}
 
@@ -496,12 +512,14 @@ The easiest integration would be with constant parameters, as opposed to a real-
 This kind of experimentation with fake data is very useful because it allows us to have a better idea about the performance of the tools and methodologies that we use.
 We applied this kind of sandbox experimentation for the identification of the dynamics from generated SIR trajectories and surprisingly we never managed to recover the original ODEs.
 Depending on the cutoff value we can have either a very complex or very simple formula be we never managed to converge to the original formulation as described in equation \ref{eq:sir}. 
-Nevertheless, if the formula has more than 4 or 5 terms the system is able to closely fit the data while having a different ODE and the more complex the system is the better the fitting.
+Nevertheless, if the formula has more than 4 or 5 terms the system is able to closely fit the data while having a different ODE and the more complex the system is the better the fitting. 
+This is probably due to the fact that the candidate functions have some redundant terms and that a lot of equally well fitting formulations exist.
+The problem with those non-original formulations is that we cannot be sure that their behavior is identical outside of the training domain.
 Then when the cutoff value surpasses some threshold, the system becomes too sparse and the model no longer fits the data.
 
 Although we didn't give an exact answer to why adding the SIR quantities to the state doesn't give better results, we gave a very important element that almost excludes the possibility of doing such fitting with the methodologies of this work. 
-On way to tackle this problem could be to find a more sophisticated way to regularize the model than the sparse regression with the cutoff value we are currently using.
-Indeed, we suspect that this kind of regularization might be susceptible to get stuck in local minima because of the too early exclusion of important terms.
+One way to tackle this problem could be to find a more sophisticated way to regularize the model than the sparse regression with the cutoff value we are currently using.
+Indeed, we suspect that this kind of regularization might be leading the model into a local minima because of the too early exclusion of important terms.
 
 \paragraph{Real data} 
 Needless to say that if the methodology doesn't work with some very simple generated scenarios there is no chance that it will work with real trajectories. 
@@ -520,11 +538,41 @@ But in the case of system identification with no a priori it is much harder to d
 \subsection{Challenges with SIR fitting}\label{sec:sirdiscu}
 
 The major problem when fitting parameters for SIR models is the discrepancy between real observations and the parameters of the model.
-The number of infected people "I" is not available in our data sources, instead we have the number of total people that were infected. 
+The number of infected people "I" is not available in our data sources, instead we have the number of total people that were infected (we usually refer to it as the cumulative number of cases). 
 In order to find "I", we can say that it is equal to the number of cumulative cases minus the number of recovered people, but this works only for the countries where the number of recovered people is reliable.
 And then the problem is that in reality if someone is tested positive then he is immediately quarantined whereas the model supposes that this person might infect other people before he recovers from the disease.
 That's why the actual time someone remains in the "I" compartment is smaller than the usual lifespan of the virus.
 
+Similar problems are encountered when fitting more elaborate models like SEIR, SIRU, SEIRD, and so on, where the number of exposed people is not observed and requires assumptions. This problem can be tackled by adapting the model to the actual values that we observe in real life and adding special compartments for unobserved quantities that are later optimized to give the best possible fit on the real and observed data.
+This is what allows epidemiologists to give estimations about the number of asymptomatic people for example.
 
+\section{Conclusion}\ref{sec:conclusion}
+
+Drawing conclusions from not very successful experiments is no easy task.
+Throughout this report we emphasized how hard and unfruitful it was to use system identification tools for the COVID-19 data.
+However we can never be sure that we have tested the techniques thoroughly enough to conclude that system identification is not useful for epidemiology.
+In this conclusion we want to highlight some major points that are worth remembering from this exploratory work.
+
+\com{TODO(An actual conclusion)}
+
+
+\section*{Acknowledgments}
+\label{sec:acknowledgments}
+\addcontentsline{toc}{section}{\nameref{sec:acknowledgments}}
+
+The present work is not a paper but a report about my internship for my master's engineering degree at IMT Mines Ales. In this section I add some contextual information about the internship.
+
+\section*{Appendix}
+\label{sec:appendix}
+\addcontentsline{toc}{section}{\nameref{sec:appendix}}
+
+\begin{enumerate}
+	\item Rational basis functions \url{https://kipre.github.io/files/internship/reports/non-linear/nonlinear.html} \label{app:rational}
+	\item Simple trajectories in countries around the world \url{TODO} \label{app:all-countries}
+	\item Forecasting COVID-19 cases \url{TODO} \label{app:forecast}
+	\item Computing polynomial terms \url{TODO} \label{app:polynomials}
+	\item Worldwide model \url{TODO} \label{app:global}
+	\item Time-dependent dynamics \url{https://kipre.github.io/files/internship/reports/covid_time/index.html} \label{app:time-dependent}
+\end{enumerate}
 
 \end{document}
