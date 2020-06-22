@@ -20,7 +20,7 @@
 \section{Introduction}
 Since its outbreak in late 2019 in Wuhan, China the COVID-19 virus has spread all over the world and has challenged the social and health systems of many countries. 
 The pandemic has also triggered a huge interest from all disciplines of science and countless researchers have contributed to the better understanding of the characteristics of this novel disease. 
-An astonishing number of more than 29000 COVID-19 related contributions is available on the \href{https://search.bvsalud.org/global-literature-on-novel-coronavirus-2019-ncov/}{WHO website} and all of these articles where published after the first of January 2020.
+An astonishing number of more than \com{29000} COVID-19 related contributions is available on the \href{https://search.bvsalud.org/global-literature-on-novel-coronavirus-2019-ncov/}{WHO website} and all of these articles where published after the first of January 2020.
 
 Those contributions cover an extremely wide range of aspects of the pandemic: from the behavior of the virus on a microscopic level and it's lifespan on different surfaces to the impact of the lockdown on the psychology of the population. 
 One very important aspect of the pandemic is obviously the understanding of it's evolutions and consequently it's modeling and forecasting. 
@@ -32,7 +32,7 @@ The most common way of modeling a disease is through compartmental models.
 They divide the population into different compartments like susceptible (not yet infected by the disease), exposed (infected but not yet infectious), infected, recovered. 
 The interaction processes between the different compartments are governed by a set of simple ODEs. 
 This framework was introduced almost a century ago and is flexible enough to model most of the effects and controls of the disease and allows for arbitrarily complex models. 
-The classic epidemiological approaches will be further introduced in section \ref{sec:class}.
+The classic epidemiological approaches will be further introduced in section \ref{sec:sir}.
 
 In this work we deliberately choose to not base our modeling on these classic techniques and concentrate on the identification of dynamic processes in the evolution of the disease with very little a priori.
 The different approaches considered in this work all gravitate around an algorithm proposed in \cite{sindy} called {\em system identification of nonlinear dynamics}. 
@@ -54,7 +54,7 @@ The rest of this report is constructed as follows: in section \ref{sec:sir} we p
 \subsection{SIR models}
 
 The most basic model of this kind is the SIR model that tracks the number of susceptible, infected and recovered people in the sample. 
-It was originally proposed in \cite{sir} and has become the most widely used epidemiological model \com{discussion about micro and macro levels}. 
+It was originally proposed in \cite{sir} and has become the most widely used epidemiological model.
 This very simple model is formulated by the following set of equations:
 
 \begin{equation}\label{eq:sir}\
@@ -286,7 +286,7 @@ In this section we will describe what kind of data we used for our modeling.
 \subsection{Observing the pandemic}\label{sec:jhu}
 
 Because this pandemic has no precedents, the metrics people used to track the state of the disease have evolved during the course of the disease. 
-For example, on the \com{date} the redefinition of what a "case of infection" is according to the WHO led to a huge spike in new cases in China \cite{}. 
+For example, on the February 13th 2020 the redefinition of what a "case of infection" is according to the WHO led to a huge spike in new cases in China. 
 This example highlights the fact that the observation data in not completely reliable. 
 Furthermore, due to the big differences in healthcare systems in different countries as well as on a regional scale, it can be unfair to compare the numbers. 
 An example of such difference might be the testing policy. 
@@ -546,7 +546,17 @@ That's why the actual time someone remains in the "I" compartment is smaller tha
 Similar problems are encountered when fitting more elaborate models like SEIR, SIRU, SEIRD, and so on, where the number of exposed people is not observed and requires assumptions. This problem can be tackled by adapting the model to the actual values that we observe in real life and adding special compartments for unobserved quantities that are later optimized to give the best possible fit on the real and observed data.
 This is what allows epidemiologists to give estimations about the number of asymptomatic people for example.
 
-\section{Conclusion}\ref{sec:conclusion}
+\subsection{Different goals}
+
+Throughout this work, we had very different goals in mind. 
+When we modeled the evolution of the number of cases in a single country we wanted our models to be as accurate as possible for forecasting purposes.
+Whereas when we made the "global" model we weren't as concerned by the accuracy and instead would've preferred models that would capture the real underlying patterns instead of overfitting to the observations.
+This distinction between the different goals that we can have in modeling is fundamental.
+When we develop a modeling framework, we define the scope of the effects and interactions that are taken into account by the model and the performance metrics are defined with respect to this scope.
+In our work, we never had an very clearly defined scope, thus we evaluated the performance of our models by comparing them to the existing ones that have a similar scope (like forecasting for the single country modeling). 
+
+
+\section{Conclusion}\label{sec:conclusion}
 
 Drawing conclusions from not very successful experiments is no easy task.
 Throughout this report we emphasized how hard and unfruitful it was to use system identification tools for the COVID-19 data.
@@ -561,6 +571,10 @@ In this conclusion we want to highlight some major points that are worth remembe
 \addcontentsline{toc}{section}{\nameref{sec:acknowledgments}}
 
 The present work is not a paper but a report about my internship for my master's engineering degree at IMT Mines Ales. In this section I add some contextual information about the internship.
+
+\subsection*{Context} 
+
+
 
 \section*{Appendix}
 \label{sec:appendix}
