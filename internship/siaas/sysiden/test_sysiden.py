@@ -3,12 +3,21 @@ from sysiden import *
 import pandas as pd
 import numpy as np
 
-data = pd.read_csv("https://raw.githubusercontent.com/Kipre/files/master/hosted/test_data/linear_oscillator_data.csv")
-X = pd.read_csv("https://raw.githubusercontent.com/Kipre/files/master/hosted/test_data/linear_oscillator_X.csv")
-augmented = pd.read_csv("https://raw.githubusercontent.com/Kipre/files/master/hosted/test_data/linear_oscillator_augmented.csv")
-targets = pd.read_csv("https://raw.githubusercontent.com/Kipre/files/master/hosted/test_data/linear_oscillator_targets.csv")
-weights = pd.read_csv("https://raw.githubusercontent.com/Kipre/files/master/hosted/test_data/linear_oscillator_weights.csv", index_col=0)
+url = "https://raw.githubusercontent.com/Kipre/files/master/hosted/test_data/"
 
+data = pd.read_csv(f"{url}linear_oscillator_data.csv")
+X = pd.read_csv(f"{url}linear_oscillator_X.csv")
+augmented = pd.read_csv(f"{url}linear_oscillator_augmented.csv")
+targets = pd.read_csv(f"{url}linear_oscillator_targets.csv")
+weights = pd.read_csv(f"{url}linear_oscillator_weights.csv", index_col=0)
+
+lorenz_data = pd.read_csv(f"{url}lorenz_data.csv")
+lorenz_X = pd.read_csv(f"{url}lorenz_X.csv")
+lorenz_augmented = pd.read_csv(f"{url}lorenz_augmented.csv")
+lorenz_targets = pd.read_csv(f"{url}lorenz_targets.csv")
+lorenz_weights = pd.read_csv(f"{url}lorenz_weights.csv", index_col=0)
+lorenz_dtargets = pd.read_csv(f"{url}lorenz_dtargets.csv")
+lorenz_dweights = pd.read_csv(f"{url}lorenz_dweights.csv", index_col=0)
 
 
 class TestMakeTargets(unittest.TestCase):
@@ -73,6 +82,16 @@ class TestMakeTargets(unittest.TestCase):
         pd.testing.assert_frame_equal(X, output1)
         pd.testing.assert_frame_equal(targets, output2)
 
+    def test_real_lorenz(self):
+        output1, output2 = make_targets(lorenz_data)
+        pd.testing.assert_frame_equal(lorenz_X, output1.reset_index(drop=True))
+        pd.testing.assert_frame_equal(lorenz_targets, output2.reset_index(drop=True))
+
+    def test_real_dlorenz(self):
+        output1, output2 = make_targets(lorenz_data, derivative=True)
+        pd.testing.assert_frame_equal(lorenz_X, output1.reset_index(drop=True))
+        pd.testing.assert_frame_equal(lorenz_dtargets, output2.reset_index(drop=True))
+
 
 
 
@@ -107,11 +126,23 @@ class TestAugment(unittest.TestCase):
         output = augment(X, max_degree=3)
         pd.testing.assert_frame_equal(augmented, output, check_like=True, check_dtype=False)
 
+    def test_real_lorenz(self):
+        output = augment(lorenz_X, max_degree=4)
+        pd.testing.assert_frame_equal(lorenz_augmented, output, check_like=True, check_dtype=False)
+
 class TestSparseRegression(unittest.TestCase):
 
     def test_spreg_with_real_data(self):
         output = sparse_regression(augmented, targets, cutoff=2e-3)
         pd.testing.assert_frame_equal(weights, output, check_like=True, check_dtype=False)
+
+    def test_spreg_with_lorenz(self):
+        output = sparse_regression(lorenz_augmented, lorenz_targets, cutoff=2e-3)
+        pd.testing.assert_frame_equal(lorenz_weights, output, check_like=True, check_dtype=False, check_less_precise=2)
+
+    def test_spreg_with_lorenz(self):
+        output = sparse_regression(lorenz_augmented, lorenz_dtargets, cutoff=2e-3)
+        pd.testing.assert_frame_equal(lorenz_dweights, output, check_like=True, check_dtype=False, check_less_precise=2)
 
 
 
