@@ -1,11 +1,11 @@
 ,x,y
-1*1*1,"tf.Tensor(0.0, shape=(), dtype=float32)","tf.Tensor(0.0, shape=(), dtype=float32)"
-1*1*x,"tf.Tensor(1.0011089, shape=(), dtype=float32)","tf.Tensor(0.0670818, shape=(), dtype=float32)"
-1*1*y,"tf.Tensor(-0.067079775, shape=(), dtype=float32)","tf.Tensor(1.0011121, shape=(), dtype=float32)"
-1*x*x,"tf.Tensor(0.0, shape=(), dtype=float32)","tf.Tensor(0.0, shape=(), dtype=float32)"
-1*x*y,"tf.Tensor(0.0, shape=(), dtype=float32)","tf.Tensor(0.0, shape=(), dtype=float32)"
-1*y*y,"tf.Tensor(0.0, shape=(), dtype=float32)","tf.Tensor(0.0, shape=(), dtype=float32)"
-x*x*x,"tf.Tensor(0.0, shape=(), dtype=float32)","tf.Tensor(0.0, shape=(), dtype=float32)"
-x*x*y,"tf.Tensor(0.0, shape=(), dtype=float32)","tf.Tensor(0.0, shape=(), dtype=float32)"
-x*y*y,"tf.Tensor(0.0, shape=(), dtype=float32)","tf.Tensor(0.0, shape=(), dtype=float32)"
-y*y*y,"tf.Tensor(0.0, shape=(), dtype=float32)","tf.Tensor(0.0, shape=(), dtype=float32)"
+1*1*1,0.0,0.0
+1*1*x,1.0011089,0.0670818
+1*1*y,-0.067079775,1.0011121
+1*x*x,0.0,0.0
+1*x*y,0.0,0.0
+1*y*y,0.0,0.0
+x*x*x,0.0,0.0
+x*x*y,0.0,0.0
+x*y*y,0.0,0.0
+y*y*y,0.0,0.0
