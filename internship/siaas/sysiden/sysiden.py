@@ -1,14 +1,35 @@
 import numpy as np
 import pandas as pd
 from itertools import combinations_with_replacement
+import requests # just for retrieving the required test files
 
-def open_csv(f):
+def process_input_file(f):
+	'''
+	Opens the csv and runs some sanity checks.
+
+		Parameters:
+			f (file): input file.
+
+		Returns:
+			data (pd.DataFrame): the valid dataframe or the one containing the eventual errors.
+	'''
 	data = pd.read_csv(f)
-	print(data)
+
+	# check that there is only numbers in the dataframe
+	if not data.apply(lambda s: pd.to_numeric(s, errors='coerce').notnull().all()).all():
+		return pd.DataFrame(['The input csv must contain only numerical columns'], index=['error'])
+
+	# check that NaNs are all on same lines
+	reference = data.iloc[:, 0].isna()
+	for column in data:
+		if not (data[column].isna() == reference).all():
+			return pd.DataFrame(['The input csv must have all NaNs on same lines'], index=['error'])
+
+	return data
 
 def make_targets(df, derivative=False):
 	'''
-	Returns the X and X2 matrices for system identification.
+	Returns the X and X2 matrices for system identification so that the matrices are properly shifted.
 
 		Parameters:
 			df (pandas.DataFrame): The dataframe with variables
@@ -110,5 +131,22 @@ def sparse_regression(augmented, targets, cutoff=1e-4):
         if not (weights - precedent_weights).any():
             break # if no change from precedent interation, no need to continue
     return pd.DataFrame(weights, columns=variables, index=terms)
+
+def identify_system(f, cutoff, max_degree, derivative=False):
+	'''
+	Main processing function.
+
+		Parameters:
+			f (file-like): input file from the reuest.
+
+		Returns:
+			result (str): the csv with the weight matrix as a string.
+	'''
+	result = process_input_file(f)
+	X, targets = make_targets(result, derivative=derivative)
+	augmented = augment(X, max_degree)
+	weights = sparse_regression(augmented, targets, cutoff)
+	return weights.to_csv(line_terminator='\n')
+
 
 

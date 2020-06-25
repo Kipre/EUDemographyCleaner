@@ -2,6 +2,7 @@ import unittest
 from sysiden import *
 import pandas as pd
 import numpy as np
+import io
 
 url = "https://raw.githubusercontent.com/Kipre/files/master/hosted/test_data/"
 
@@ -18,6 +19,26 @@ lorenz_targets = pd.read_csv(f"{url}lorenz_targets.csv")
 lorenz_weights = pd.read_csv(f"{url}lorenz_weights.csv", index_col=0)
 lorenz_dtargets = pd.read_csv(f"{url}lorenz_dtargets.csv")
 lorenz_dweights = pd.read_csv(f"{url}lorenz_dweights.csv", index_col=0)
+
+
+class TestProcessInput(unittest.TestCase):
+
+    f = io.StringIO(requests.get(f"{url}linear_oscillator_data.csv").text)
+    nan_corrupted = io.StringIO(requests.get(f"{url}data_with_nan_inconsistency.csv").text)
+    str_corrupted = io.StringIO(requests.get(f"{url}data_with_string.csv").text)
+
+    def test_good_file(self):
+        output = process_input_file(self.f)
+        pd.testing.assert_frame_equal(output, data)
+
+    def test_nan_corrupted(self):
+        output = process_input_file(self.nan_corrupted)
+        print(output)
+        pd.testing.assert_frame_equal(output, pd.DataFrame(['The input csv must have all NaNs on same lines'], index=['error']))
+
+    def test_str_corrupted(self):
+        output = process_input_file(self.str_corrupted)
+        pd.testing.assert_frame_equal(output, pd.DataFrame(['The input csv must contain only numerical columns'], index=['error']))
 
 
 class TestMakeTargets(unittest.TestCase):
@@ -93,8 +114,6 @@ class TestMakeTargets(unittest.TestCase):
         pd.testing.assert_frame_equal(lorenz_dtargets, output2.reset_index(drop=True))
 
 
-
-
 class TestAugment(unittest.TestCase):
     simple_df = pd.DataFrame([[1., 2.],
                               [1., 4.],
@@ -130,6 +149,7 @@ class TestAugment(unittest.TestCase):
         output = augment(lorenz_X, max_degree=4)
         pd.testing.assert_frame_equal(lorenz_augmented, output, check_like=True, check_dtype=False)
 
+
 class TestSparseRegression(unittest.TestCase):
 
     def test_spreg_with_real_data(self):
@@ -138,14 +158,19 @@ class TestSparseRegression(unittest.TestCase):
 
     def test_spreg_with_lorenz(self):
         output = sparse_regression(lorenz_augmented, lorenz_targets, cutoff=2e-3)
-        pd.testing.assert_frame_equal(lorenz_weights, output, check_like=True, check_dtype=False, check_less_precise=2)
+        self.assertLess((output.values - lorenz_weights.values).mean(), 3e-3)
 
-    def test_spreg_with_lorenz(self):
+    def test_spreg_with_dlorenz(self):
         output = sparse_regression(lorenz_augmented, lorenz_dtargets, cutoff=2e-3)
-        pd.testing.assert_frame_equal(lorenz_dweights, output, check_like=True, check_dtype=False, check_less_precise=2)
+        self.assertLess((output.values - lorenz_dweights.values).mean(), 3e-3)
 
+class TestIdentifySystem(unittest.TestCase):
 
+    f = io.StringIO(requests.get(f"{url}linear_oscillator_data.csv").text)
 
+    def test_good_file(self):
+        output = identify_system(self.f, 2e-3, 3)
+        pd.testing.assert_frame_equal(pd.read_csv(io.StringIO(output), index_col=0), weights)
 
 
 

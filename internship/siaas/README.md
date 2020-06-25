@@ -14,12 +14,11 @@ __Dependencies__:
 - recent NumPy
 
 
-This server-side app is mean to identify governing equations from data. The implementation relies on the method proposed by Brunton et al. in [this paper](https://www.pnas.org/content/113/15/3932). 
+This server-side app is meant to identify governing equations from data. The implementation relies on the method proposed by Brunton et al. in [this paper](https://www.pnas.org/content/113/15/3932). 
 
-
-### Inputs 
 
 ## Service
 
 In order to interact with the service the user must perform a GET request with a file and some parameters.
 
+### Inputs 
