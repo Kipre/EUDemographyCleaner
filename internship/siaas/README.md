@@ -22,7 +22,7 @@ If the request is not valid a 400 (bad request) response will be thrown. If data
 
 ## Service
 
-In order to interact with the service the user must perform a GET request with a file and some parameters.
+In order to interact with the service the user must perform a POST request with a file and some parameters.
 
 ### Inputs 
 
@@ -53,13 +53,13 @@ If the csv contains multiple trajectories, then they must be separated by a row 
   10.3046     ,  15.7027     ,  21.444   
 ```
 otherwise the sequentiality will be misinterpreted and will introduce error.
-The first line of the csv must contain the names of the variables, the result is visually better if the names are short and without '*' or ' '.
+The first line of the csv must contain the names of the variables, the result is visually better if the names are short and without '*' or ' '(space).
 
-And the POST request must contain the hyperparameters if the model:
+And the POST request must contain the hyperparameters of the model:
 
- - the `cutoff_value` (a float in the [0, 100] range) which is the threshold for the weight matrix;
+ - the `cutoff_value` (a float in the [0, 10] range) which is the threshold for the weight matrix;
  - the `max_degree` of polynomial terms (an integer in the range [1, 10]), default value: 3;
- - boolean `derivative` to decide whether to use the iterative or the derivative formulation, default value is false.
+ - boolean `derivative` to decide whether to use the iterative or the derivative formulation, default value is `false`.
 
 An example of a valid request in python:
 
@@ -69,7 +69,7 @@ import requests
 API_ENDPOINT = "http://127.0.0.1:5000/" # or your api address
 
 # input csv
-f = '''x,y,z
+csv = '''x,y,z
 -8.00,7.00,27.00
 -3.84,6.26,23.46
 -1.07,5.62,21.01
@@ -81,7 +81,7 @@ f = '''x,y,z
 '''
 
 # data to be sent to api 
-files = {'trajectories': f} 
+files = {'trajectories': csv} 
 data = {'cutoff_value': 0.1,
         'max_degree': 2,
         'derivative': False}

@@ -32,17 +32,13 @@ def process_input_file(f):
 	'''
 	data = pd.read_csv(f)
 
-	# pass error on
-	if 'error' in data.iloc[:, 0]:
-		return pd.read_csv(f, index_col=0)
-
 	# check that NaNs are all on same lines
 	reference = data.iloc[:, 0].isna()
 	for column in data:
 		if not (data[column].isna() == reference).all():
 			return pd.DataFrame(['The input csv must have all NaNs on same lines'], index=['error'])
 
-	# check that there is only numbers in the dataframe
+	# check that there are only numbers in the dataframe
 	if not data.apply(lambda s: pd.to_numeric(s.fillna(0), errors='coerce').notnull().all()).all():
 		return pd.DataFrame(['The input csv must contain only numerical columns'], index=['error'])
 
