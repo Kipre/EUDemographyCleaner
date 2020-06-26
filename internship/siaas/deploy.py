@@ -12,13 +12,14 @@ def handle_file():
 		if 'trajectories' in request.files.keys():
 			f = request.files['trajectories']
 			if 'cutoff_value' in request.form.keys():
+				print(request.form['cutoff_value'])
 				cutoff_value = float(request.form['cutoff_value'])
 			else:
 				return 'Bad request: the request must provide a float cutoff value in the "cutoff_value" data field', 400
 			if 'max_degree' in request.form.keys():
 				max_degree = int(request.form['max_degree'])
 			else:
-				return 'Bad request: the request must provide a integer maximim degree of polynomial terms in the "max_degree" data field', 400
+				max_degree = 3
 		else:
 			return 'Bad request: the request must provide a file in with the "trajectories" key', 400
 	else:

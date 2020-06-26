@@ -3,6 +3,23 @@ import pandas as pd
 from itertools import combinations_with_replacement
 import requests # just for retrieving the required test files
 
+
+def augment_row(x, max_degree=3):
+	'''
+	Utility function for testing that augments the input vector with polynomial terms.
+
+		Paramers:
+			x (np.array): 1d vector to augment.
+			max_degree (int): maximum degree of polynomial terms
+
+		Returns:
+			result (np.array): augmented vactor
+	'''
+	result = []
+	for terms in combinations_with_replacement(np.insert(x, 0, 1, axis=0), max_degree):
+		result.append(np.prod(terms))
+	return np.array(result)
+
 def process_input_file(f):
 	'''
 	Opens the csv and runs some sanity checks.

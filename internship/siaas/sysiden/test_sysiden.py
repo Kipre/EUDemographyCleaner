@@ -2,6 +2,7 @@ import unittest
 from sysiden import *
 import pandas as pd
 import numpy as np
+from scipy.integrate import solve_ivp
 import io
 
 url = "https://raw.githubusercontent.com/Kipre/files/master/hosted/test_data/"
@@ -19,6 +20,13 @@ lorenz_targets = pd.read_csv(f"{url}lorenz_targets.csv")
 lorenz_weights = pd.read_csv(f"{url}lorenz_weights.csv", index_col=0)
 lorenz_dtargets = pd.read_csv(f"{url}lorenz_dtargets.csv")
 lorenz_dweights = pd.read_csv(f"{url}lorenz_dweights.csv", index_col=0)
+
+
+class TestAugmentRow(unittest.TestCase):
+
+    def test1(self):
+        np.testing.assert_almost_equal(np.array([1, 2, 4, 8]), augment_row(np.array([2]), 3))
+        np.testing.assert_almost_equal(np.array([1, 2, 1, 4, 2, 1]), augment_row(np.array([2, 1]), 2))
 
 
 class TestProcessInput(unittest.TestCase):
@@ -176,6 +184,18 @@ class TestIdentifySystem(unittest.TestCase):
         output = identify_system(self.f, 2e-3, 3)
         pd.testing.assert_frame_equal(pd.read_csv(io.StringIO(output), index_col=0), weights)
 
+    # def test_random_function(self):
+
+    #     max_degree = 3
+
+    #     # first we need to create data
+    #     weights = np.random.uniform(size=(10, 2))
+    #     weights[weights < 0.4] = 0
+
+    #     t = np.linspace(0, 1, 200)
+
+    #     res = solve_ivp(lambda t, y: augment_row(y, max_degree) @ weights, (t[0], t[-1]), [2, 3], t_eval=t)
+    #     print(res)
 
 
 if __name__ == '__main__':
