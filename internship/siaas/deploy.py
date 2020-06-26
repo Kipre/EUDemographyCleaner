@@ -7,16 +7,23 @@ app = Flask(__name__)
 
 
 @app.route('/', methods=['POST'])
-def upload_file():
+def handle_file():
 	if request.method == 'POST':
-		if 'trajectories' in request.files.keys() and 'cutoff_value' in request.form.keys():
+		if 'trajectories' in request.files.keys():
 			f = request.files['trajectories']
-			cutoff_value = float(request.form['cutoff_value'])
-			max_degree = int(request.form['max_degree'])
-			result = identify_system(f, cutoff_value, max_degree)
-
+			if 'cutoff_value' in request.form.keys():
+				cutoff_value = float(request.form['cutoff_value'])
+			else:
+				return 'Bad request: the request must provide a float cutoff value in the "cutoff_value" data field', 400
+			if 'max_degree' in request.form.keys():
+				max_degree = int(request.form['max_degree'])
+			else:
+				return 'Bad request: the request must provide a integer maximim degree of polynomial terms in the "max_degree" data field', 400
 		else:
-			return '400; Bad request: the request must provide a file in with the "trajectories" key', 400
+			return 'Bad request: the request must provide a file in with the "trajectories" key', 400
+	else:
+		return 'Bad regest: the server only handles POST requests.', 400
+	result = identify_system(f, cutoff_value, max_degree)
 	return result, 200
 
 if __name__ == "__main__":

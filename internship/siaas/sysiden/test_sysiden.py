@@ -24,6 +24,7 @@ lorenz_dweights = pd.read_csv(f"{url}lorenz_dweights.csv", index_col=0)
 class TestProcessInput(unittest.TestCase):
 
     f = io.StringIO(requests.get(f"{url}linear_oscillator_data.csv").text)
+    f_mt = io.StringIO(requests.get(f"{url}lorenz_data.csv").text)
     nan_corrupted = io.StringIO(requests.get(f"{url}data_with_nan_inconsistency.csv").text)
     str_corrupted = io.StringIO(requests.get(f"{url}data_with_string.csv").text)
 
@@ -31,9 +32,12 @@ class TestProcessInput(unittest.TestCase):
         output = process_input_file(self.f)
         pd.testing.assert_frame_equal(output, data)
 
+    def test_good_file_mt(self):
+        output = process_input_file(self.f_mt)
+        pd.testing.assert_frame_equal(output, lorenz_data)
+
     def test_nan_corrupted(self):
         output = process_input_file(self.nan_corrupted)
-        print(output)
         pd.testing.assert_frame_equal(output, pd.DataFrame(['The input csv must have all NaNs on same lines'], index=['error']))
 
     def test_str_corrupted(self):
