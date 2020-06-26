@@ -20,13 +20,17 @@ This server-side app is meant to identify governing equations from data. The imp
 
 If the request is not valid a 400 (bad request) response will be thrown. If data is not well formed or an error occurs during the processing, a csv with the error description well be returned.
 
-## Service
+## Service deployment
+
+The app is hosted using Flask. It can be deployed by executing the `deploy.py` file (warning: this will create a server in debug mode, in order to make it run for production one has to consult Flask's documentation). 
+
+## API
 
 In order to interact with the service the user must perform a POST request with a file and some parameters.
 
 ### Inputs 
 
-The request must contain 1 csv file with the trajectories of the system and each column corresponding to a variable labeled as `trajectories`. 
+The POST request must contain 1 csv file with the trajectories of the system and each column corresponding to a variable labeled as `trajectories`. 
 For example if the system is a Lorenz oscillator and it has 3 variables then the csv should be like:
 
 |            x |            y |         z |
@@ -127,5 +131,8 @@ The output will always have the following form:
 and in each column one can find the coefficients of the different terms in the identified dynamics.
 
 
+## TODO
 
+- Add other candidate functions support
+- Add cutoff value optimization
 

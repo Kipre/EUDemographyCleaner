@@ -185,6 +185,7 @@ class TestIdentifySystem(unittest.TestCase):
         pd.testing.assert_frame_equal(pd.read_csv(io.StringIO(output), index_col=0), weights)
 
     # def test_random_function(self):
+    #     # won't work because generated systems are too unstable
 
     #     max_degree = 3
 
