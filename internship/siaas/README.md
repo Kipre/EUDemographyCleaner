@@ -27,7 +27,7 @@ In order to interact with the service the user must perform a GET request with a
 
 ### Inputs 
 
-1 csv file with the trajectories of the system and each column corresponding to a variable. 
+1 csv file with the trajectories of the system and each column corresponding to a variable labaled as `trajectories`. 
 For example if the system is a Lorenz oscillator and it has 3 variables then the csv should be like:
 
 |            x |            y |         z |
@@ -68,8 +68,9 @@ otherwise the sequentiality will be misinterpreted and will introduce error.
 
 And the POST request must contain the hyperparameters if the model:
 
- - the cutoff values (a float in the [0, 100] range) which is the threshold for the weight matrix;
- - the maximum degree of polynomial terms (an integer in the range [1, 10]).
+ - the `cutoff_value` (a float in the [0, 100] range) which is the threshold for the weight matrix;
+ - the `max_degree` of polynomial terms (an integer in the range [1, 10]), default value: 3;
+ - boolean `derivative` to decide whether to use the iterative or the derivative formulation.
 
 An example of a valid request:
 
@@ -100,7 +101,8 @@ f = '''x,y,z
 # data to be sent to api 
 files = {'trajectories': f} 
 data = {'cutoff_value': 0.1,
-        'max_degree': 2}
+        'max_degree': 2
+        'derivative': False}
 
   
 # sending post request
@@ -110,7 +112,10 @@ r = requests.post(url=API_ENDPOINT, data=data, files=files)
 print(r.text) 
 ```
 
-And the answer in this case will be:
+### Output 
+
+
+The output of the aforementioned example will be:
 ```
 ,x,y,z
 1*1,2.143193720191059,5.924951824394656,9.421008315110305
@@ -124,6 +129,21 @@ y*y,0.0,0.0,0.0
 y*z,0.0,0.0,0.0
 z*z,0.0,0.0,0.0
 ```
+
+The output will always have the following form:
+
+|     |        variable1 |         variable2 |
+|:----|---------:|----------:|
+| 1*1 | 2.14319  |  5.92495  |
+| 1*variable1 | 0.872789 | -0.102448 |
+| 1*variable2 | 0        |  1.23981  |
+| variable1*variable1 | 0        |  0        |
+| variable1*variable2 | 0        |  0        |
+| variable2*variable2 | 0        |  0        |
+
+which means that the 
+
+
 
 
 
