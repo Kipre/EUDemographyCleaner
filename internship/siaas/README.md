@@ -2,10 +2,6 @@
 
 This folder contains a working example of a service to identify ODEs from data.
 
-
-
-## Under the hood (`sysiden`)
-
 The module that implements all of the functionality is called `sysiden` and is in the folder with the same name.
 
 __Dependencies__:
@@ -16,13 +12,11 @@ __Dependencies__:
 
 This server-side app is meant to identify governing equations from data. The implementation relies on the method proposed by Brunton et al. in [this paper](https://www.pnas.org/content/113/15/3932). 
 
-## Error handling
-
-If the request is not valid a 400 (bad request) response will be thrown. If data is not well formed or an error occurs during the processing, a csv with the error description well be returned.
-
 ## Service deployment
 
-The app is hosted using Flask. It can be deployed by executing the `deploy.py` file (warning: this will create a server in debug mode, in order to make it run for production one has to consult Flask's documentation). 
+The app is hosted using Flask. 
+It can be deployed by executing the `deploy.py` file (warning: this will create a service in debug mode, in order to make it run for production one has to consult Flask's documentation). 
+In order to check that the server runs well, one can execute `test_api.py` to check that the server treats the request correctly.
 
 ## API
 
@@ -65,6 +59,8 @@ And the POST request must contain the hyperparameters of the model:
  - the `max_degree` of polynomial terms (an integer in the range [1, 10]), default value: 3;
  - boolean `derivative` to decide whether to use the iterative or the derivative formulation, default value is `false`.
 
+### Examples
+
 An example of a valid request in python:
 
 ```python
@@ -96,7 +92,35 @@ r = requests.post(url=API_ENDPOINT, data=data, files=files)
   
 # extracting response text  
 print(r.text) 
+```
 
+And one in JS:
+```javascript
+var csv = `x,y,z
+-8.00,7.00,27.00
+-3.84,6.26,23.46
+-1.07,5.62,21.01
+0.79,5.42,19.21
+2.14,5.72,17.84
+3.26,6.48,16.85
+4.35,7.71,16.27
+5.54,9.37,16.24`
+
+var data = new FormData()
+data.append('trajectories', csv)
+data.append('cutoff_value', 0.001)
+data.append('max_degree', 3)
+
+var myInit = { method: 'POST',
+               body: data,
+               mode: 'no-cors'};
+
+var myRequest = new Request('http://127.0.0.1:5000/', myInit);
+
+fetch(myRequest, myInit)
+.then((response) => {
+  console.log(response);
+});
 ```
 
 ### Output 
@@ -129,6 +153,10 @@ The output will always have the following form:
 | variable2*variable2 | 0        |  0        |
 
 and in each column one can find the coefficients of the different terms in the identified dynamics.
+
+## Error handling
+
+If the request is not valid a 400 (bad request) response will be thrown. If data is not well formed or an error occurs during the processing, a csv with the error description well be returned.
 
 
 ## TODO

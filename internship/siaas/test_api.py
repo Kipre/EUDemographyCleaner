@@ -8,7 +8,6 @@ API_ENDPOINT = "http://127.0.0.1:5000/"
 test_data_url = "https://raw.githubusercontent.com/Kipre/files/master/hosted/test_data/"
 
 
-
 class TestApi(unittest.TestCase):
 
 	def test_good_request(self):
