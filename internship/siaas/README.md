@@ -94,7 +94,7 @@ r = requests.post(url=API_ENDPOINT, data=data, files=files)
 print(r.text) 
 ```
 
-And one in JS:
+And one in JS (doesn't work because of CORS but the request is valid):
 ```javascript
 var csv = `x,y,z
 -8.00,7.00,27.00
