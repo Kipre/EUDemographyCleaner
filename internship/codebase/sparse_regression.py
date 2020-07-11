@@ -78,19 +78,23 @@ def complete(array, n):
     result[:len(array)] = array
     return result
 
-def cutoff_mses(augmented, targets, a, b, num=40):
+def cutoff_mses(augmented, targets, a, b, num=40, custom_metric=None):
     cutoffs = np.logspace(a, b, num=num)
     sparsity = []
     mses = []
     all_weights = []
+    custom_loss = []
 
     for k in cutoffs:
         weights, _ = sparse_regression(augmented, targets, cutoff=k)
         mse = ((tf.matmul(tf.cast(augmented, dtype=tf.float32), tf.cast(weights, dtype=tf.float32)) - targets)**2).numpy().mean()
+        if custom_metric:
+            custom_loss.append(custom_metric(targets, augmented @ weights))
         mses.append(mse)
         sparsity.append((weights.numpy() == 0).sum()/len(weights.numpy().flatten()))
         all_weights.append(weights)
     return { 'cutoffs': cutoffs,
              'sparsity': sparsity,
              'mses': mses,
-             'all_weights': all_weights }
+             'all_weights': all_weights,
+             'custom_metric': np.array(custom_loss) }

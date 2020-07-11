@@ -80,6 +80,9 @@ def show_weights(weights, derivative=False, variables=None, max_degree=6, raw=Fa
         nb_variables = weights.shape[1]
         if not variables:
             variables = ['1', 'x', 'y', 'z']
+        else:
+            nb_variables = len(variables)
+            variables = ['1'] + variables
     else:
         nb_variables = weights.shape[0]
         if not variables:
