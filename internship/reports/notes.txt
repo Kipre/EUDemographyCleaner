@@ -1,0 +1,64 @@
+
+\subsection*{Preliminary check}
+
+Before running the training I checked that the system identification algorithm was able to learn the right dynamics even with a big number of uninformative random variables. 
+This is the next step of the question you asked me a few weeks ago: "wouldn't system identification be confused by multiple trajectories?" and now I wanted to check whether the system would be confused if we give lots of unnecessary variables.
+I did not do a very thorough study but the main conclusion was that even though the coefficients might become unreadable the system behavior tended to be identified equally well regardless of the number of uninformative variables. 
+The only thing is that with a big number of variables the number of candidate functions explodes\footnote{The number of candidate functions is equal to the number of combinations with replacement: $\frac{(n + r - 1)!}{ r! (n - 1)! }$ where $n$ is the total number of variables and $r$ is the maximum degree of the polynomials.} and becomes unfeasible for polynomials with degrees higher than 2.
+
+
+
+
+On figure \ref{fig:importances} I displayed the "importances" of the different variables in the system. 
+The "importance" for a given variable is the sum of the absolute values of all the coefficients of the polynomial terms that include this variable.
+This plot changes between the runs and the ordering changes as well but not drastically.
+
+
+
+\begin{figure}[!]
+  \includegraphics[scale=0.4]{importances.png}
+  \caption{Importances of the different variables and indicators.}
+  \label{fig:importances}
+\end{figure}
+
+
+
+What I tried:
+
+- With the cases by population (prevalence)
+- High/low degree 
+- Random variables
+- Delayed stringency by 10 days
+- All kinds of cutoff value
+
+What I observed:
+
+- No generalization
+- Cases by population did not change the results
+- The result are the same with random indicators
+
+Meeting conclusions:
+
+- Reduce the number of variables
+- Include other previous states (t-1, t-2, ...)
+- Other candidate functions
+
+
+
+Important things:
+
+- Nb of tests
+- Delay from the first day, more time to prepare
+
+SIR Fitting:
+
+- Information about recovered cases seems moderatly reliable
+- The effect of the number of tests
+
+Stuff to do:
+
+- Read the original paper
+- Do SIR fitting for all the countries
+- Blogpost
+- Seminar
+

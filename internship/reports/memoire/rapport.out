@@ -1,0 +1,25 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Classing epidemiological modeling techniques}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{SIR models}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Other modeling techniques}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Sparse identification of nonlinear dynamics}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Algorithm}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Hyper-parameters}{section.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Cutoff value}{subsection.3.2}% 8
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Candidate functions}{subsection.3.2}% 9
+\BOOKMARK [1][-]{section.4}{Data}{}% 10
+\BOOKMARK [2][-]{subsection.4.1}{Observing the pandemic}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.2}{Observing the government measures}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.3}{Other information}{section.4}% 13
+\BOOKMARK [1][-]{section.5}{Modeling}{}% 14
+\BOOKMARK [2][-]{subsection.5.1}{Cumulative number of cases and forecasting}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.2}{Control measures}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.3}{Global model}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.4}{Other approaches}{section.5}% 18
+\BOOKMARK [1][-]{section.6}{Discussions}{}% 19
+\BOOKMARK [2][-]{subsection.6.1}{Identifying dynamics from SIR quantities}{section.6}% 20
+\BOOKMARK [2][-]{subsection.6.2}{Challenges with SIR fitting}{section.6}% 21
+\BOOKMARK [2][-]{subsection.6.3}{Different goals}{section.6}% 22
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 23
+\BOOKMARK [1][-]{section*.11}{Acknowledgments}{}% 24
+\BOOKMARK [1][-]{section*.13}{Appendix}{}% 25
