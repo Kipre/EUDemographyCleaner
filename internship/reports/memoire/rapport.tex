@@ -547,6 +547,7 @@ Similar problems are encountered when fitting more elaborate models like SEIR, S
 This is what allows epidemiologists to give estimations about the number of asymptomatic people for example.
 
 \subsection{Different goals}
+\label{sec:different-goals}
 
 Throughout this work, we had very different goals in mind. 
 When we modeled the evolution of the number of cases in a single country we wanted our models to be as accurate as possible for forecasting purposes.
@@ -555,6 +556,17 @@ This distinction between the different goals that we can have in modeling is fun
 When we develop a modeling framework, we define the scope of the effects and interactions that are taken into account by the model and the performance metrics are defined with respect to this scope.
 In our work, we never had an very clearly defined scope, thus we evaluated the performance of our models by comparing them to the existing ones that have a similar scope (like forecasting for the single country modeling). 
 
+\subsection{Recommendations}
+
+Giving recommendations for future work is also not easy because our work is more a collection of superficial experiments than a deep analysis. 
+Due to the challenges described in subsection \ref{sec:different-goals} we privileged experimenting with real and fake data and various approaches instead of thoroughly investigating a single case. 
+Furthermore, we deliberately chose to use non-domain-specific approaches in a domain that has almost a c  b_ÀÀÇÇentury of history.
+However, we believe that there are a few tracks that are worth investigating:
+
+\begin{itemize}
+	\item Compiling information from different sources into a single forecast. This is the idea we developed in subsection \ref{sec:
+		} where we wanted the model to estimate the number of cases from country-specific indicators. We did it in a very naive manner using only a polynomial formulation, and we believe it is worth investigating such 
+
 
 \section{Conclusion}\label{sec:conclusion}
 
@@ -562,6 +574,8 @@ Drawing conclusions from not very successful experiments is no easy task.
 Throughout this report we emphasized how hard and unfruitful it was to use system identification tools for the COVID-19 data.
 However we can never be sure that we have tested the techniques thoroughly enough to conclude that system identification is not useful for epidemiology.
 In this conclusion we want to highlight some major points that are worth remembering from this exploratory work.
+
+\paragraph{TODO: Randomness}
 
 \com{TODO(An actual conclusion)}
 
@@ -580,6 +594,18 @@ He was interested in broadening the field of research of his chair by confrontin
 \paragraph{Theme} Due to the COVID-19 outbreak the major part of the internship (16 weeks out of 17) was executed in a work-from-home format. 
 The pandemic also provided material to study and apply the techniques that were already discussed in the beginning of the internship.
  
+\paragraph{Personal perspective} This work is the realization of my end-of-studies project. 
+This is my second experience of doing research in an university, and even though I haven’t made any decisions yet, it is a logic way to pursue a PhD. 
+It was a challenging and very enriching experience for several reasons. 
+The first thing that I want to point out is the obvious difference in approaches of mathematicians and engineers. Since we (French engineering students) have been accepted to our respective engineering schools we have completely forgotten the usage of mathematics. 
+We do not bother proving existences and convergences anymore, we just implement something and then see if it works experimentally. 
+For this reason it was very interesting for me to be around these mathematicians that still think fundamentally and ask philosophical questions. 
+For the same reason it was a little bit hard for me to sense the relevance of my results for mathematicians.
+The second point is that the internship was executed remotely, this was nice because it allowed me to stay with my family during these uncertain times but it also made the communication with the team slightly harder.
+Finally, this internship has opened to me the door to differential equations. 
+Since there are no more physics in my curriculum, I didn't really thought of systems as differential equations but rather as more general models, that are also less interpretable, but after this experience I have this different vision available to me.
+
+
 \paragraph{Thanks} I want to thank Prof. Enrique Zuazua for providing me this opportunity, for addressing constant support and mentoring and also for the very valuable guidance during the phase of investigation. 
 I also want to thank everyone involved in the organization of my internship at the Friedrich-Alexander University. 
 I am also grateful for the warm welcome of Prof. Zuazua's teams both in Erlangen and in Bilbao. 
@@ -593,7 +619,7 @@ Finally I want to thank Prof. Sebastien Harsipe for his help and useful comments
 - Ajouter des illustrations notamment pour les comparatifs des approches testées.
 - Discuter les aspects techniques liés à la mise en oeuvre langage de programmation, frameworks et librairies utilisés.
 - Proposer des recommandations d'amélioration.
-- Proposer un bilan professionnel et personnel (notamment sur ton projet professionnel).
++ Proposer un bilan professionnel et personnel (notamment sur ton projet professionnel).
 - Penser à respecter les instructions officielles (résumé en français, taille 30 à 40 pages, cf. plateforme de l'école).
 
 
