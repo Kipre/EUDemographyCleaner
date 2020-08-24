@@ -6,3 +6,7 @@
 internship/resources/**
 **/build/**
 **/googletest/**
+**/*.aux
+**/*.log
+**/*.toc
+**/*.out
