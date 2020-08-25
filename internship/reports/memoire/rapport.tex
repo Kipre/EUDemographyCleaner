@@ -560,12 +560,34 @@ In our work, we never had an very clearly defined scope, thus we evaluated the p
 
 Giving recommendations for future work is also not easy because our work is more a collection of superficial experiments than a deep analysis. 
 Due to the challenges described in subsection \ref{sec:different-goals} we privileged experimenting with real and fake data and various approaches instead of thoroughly investigating a single case. 
-Furthermore, we deliberately chose to use non-domain-specific approaches in a domain that has almost a c  b_ÀÀÇÇentury of history.
+Furthermore, we deliberately chose to use non-domain-specific approaches in a domain that has almost a century of history.
 However, we believe that there are a few tracks that are worth investigating:
 
 \begin{itemize}
-	\item Compiling information from different sources into a single forecast. This is the idea we developed in subsection \ref{sec:
-		} where we wanted the model to estimate the number of cases from country-specific indicators. We did it in a very naive manner using only a polynomial formulation, and we believe it is worth investigating such 
+	\item Compiling information from different sources into a single forecast. This is the idea we developed in subsection \ref{sec:global} where we wanted the model to estimate the number of cases from country-specific indicators. 
+	We did it in a very naive manner using only a polynomial formulation, and we believe it is worth further investigating this idea with more complex models. 
+	\item Altough we used fully deep models a few times during this work we never focused on them hard enough to give clear conclusions because it was not the goal of the internship. However, we think it might be interesting to bring some light on the performance of purely deep methods on dynamic modeling in the context of COVID.
+	\item 
+
+\end{itemize}
+
+\subsection{Implementation}
+
+The code required to run the experiments in this work is available in the repository at Appendix \ref{app:code}. Although the original papers from Brunton \cite{sindy, sindy2} provide open source implementations of the algorithms we chose to rely on our own code to make it easier to customize the methods at will. 
+Another reason why we focused on our own implementations is because in the world of dynamic modeling the most popular language is \href{https://www.mathworks.com/products/matlab.html}{MATLAB} as opposed to the more familiar to us Python.
+Our implementation depends only on \href{https://numpy.org/doc/stable/index.html}{Numpy} and \href{https://pandas.pydata.org/}{Pandas} to a lesser extent.
+The linear least squares part of our module in interchangeable and can be replaced by any solver with the appropriate IO parameters. 
+For example, the default solver is \texttt{numpy.linalg.lstsq} but the one from \href{https://www.tensorflow.org/}{Tensorflow} or \href{https://www.scipy.org/}{Scipy} can be used with the same success (however these might be have same underlying algorithm).
+This feature was added in order to use more complex solvers like \href{https://github.com/coin-or/Ipopt}{IPOPT} but we did not manage to use those successfully.
+
+Initially, we considered a purely TensorFlow-based implementation where we inherited a class from \texttt{tf.keras.Model} and added all of the coefficients as trainable parameters. 
+This proved to be way less efficient as well as hard to regularize. 
+The problem came from relying on TF auto-differentiation instead of using the non-linear least squares which allowed to apply the cutoff value sequentially (after each optimization) as described in the original paper. 
+TensorFlow doesn't allow freezing some coefficients in the middle of the training so we had to use the pruning mechanism in order to regularize the models and this lead to different results that were usually worse than those achieved by the original algorithm.
+
+A helper \texttt{Dataset} class was created in order to help download the data from the different API before each session. 
+The whole code was made to be as clean and maintainable as possible and will probably be deployed as a REST service from the \href{https://deustotech.github.io/DyCon-Blog/}{DyCon platform}.
+The repository contains several notebooks of varying quality where the different experiments are showcased. 
 
 
 \section{Conclusion}\label{sec:conclusion}
@@ -576,6 +598,7 @@ However we can never be sure that we have tested the techniques thoroughly enoug
 In this conclusion we want to highlight some major points that are worth remembering from this exploratory work.
 
 \paragraph{TODO: Randomness}
+\paragraph{paradoxically SINDy is only good on toy datasets}
 
 \com{TODO(An actual conclusion)}
 
@@ -617,8 +640,8 @@ Finally I want to thank Prof. Sebastien Harsipe for his help and useful comments
 - Détailler les jeux de données en proposant notamment des discussions basées sur des analyses descriptives.
 - Proposer des tableaux comparatifs des performances après avoir détaillé dans des sections dédiées les informations liées à la méthodologie employée.
 - Ajouter des illustrations notamment pour les comparatifs des approches testées.
-- Discuter les aspects techniques liés à la mise en oeuvre langage de programmation, frameworks et librairies utilisés.
-- Proposer des recommandations d'amélioration.
++ Discuter les aspects techniques liés à la mise en oeuvre langage de programmation, frameworks et librairies utilisés.
++ Proposer des recommandations d'amélioration.
 + Proposer un bilan professionnel et personnel (notamment sur ton projet professionnel).
 - Penser à respecter les instructions officielles (résumé en français, taille 30 à 40 pages, cf. plateforme de l'école).
 
@@ -634,6 +657,7 @@ Finally I want to thank Prof. Sebastien Harsipe for his help and useful comments
 	\item Computing polynomial terms \url{TODO} \label{app:polynomials}
 	\item Worldwide model \url{TODO} \label{app:global}
 	\item Time-dependent dynamics \url{https://kipre.github.io/files/internship/reports/covid_time/index.html} \label{app:time-dependent}
+	\item Implementation code \url{TODO} \label{app:code}
 \end{enumerate}
 
 \end{document}
