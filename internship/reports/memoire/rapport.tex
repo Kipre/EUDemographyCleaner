@@ -575,7 +575,7 @@ However, we believe that there are a few tracks that are worth investigating:
 
 The code required to run the experiments in this work is available in the repository at Appendix \ref{app:code}. Although the original papers from Brunton \cite{sindy, sindy2} provide open source implementations of the algorithms we chose to rely on our own code to make it easier to customize the methods at will. 
 Another reason why we focused on our own implementations is because in the world of dynamic modeling the most popular language is \href{https://www.mathworks.com/products/matlab.html}{MATLAB} as opposed to the more familiar to us Python.
-Our implementation depends only on \href{https://numpy.org/doc/stable/index.html}{Numpy} and \href{https://pandas.pydata.org/}{Pandas} to a lesser extent.
+Our implementation depends only on \href{https://numpy.org/doc/stable/index.html}{Numpy} and to a lesser extent \href{https://pandas.pydata.org/}{Pandas}.
 The linear least squares part of our module in interchangeable and can be replaced by any solver with the appropriate IO parameters. 
 For example, the default solver is \texttt{numpy.linalg.lstsq} but the one from \href{https://www.tensorflow.org/}{Tensorflow} or \href{https://www.scipy.org/}{Scipy} can be used with the same success (however these might be have same underlying algorithm).
 This feature was added in order to use more complex solvers like \href{https://github.com/coin-or/Ipopt}{IPOPT} but we did not manage to use those successfully.
@@ -585,7 +585,7 @@ This proved to be way less efficient as well as hard to regularize.
 The problem came from relying on TF auto-differentiation instead of using the non-linear least squares which allowed to apply the cutoff value sequentially (after each optimization) as described in the original paper. 
 TensorFlow doesn't allow freezing some coefficients in the middle of the training so we had to use the pruning mechanism in order to regularize the models and this lead to different results that were usually worse than those achieved by the original algorithm.
 
-A helper \texttt{Dataset} class was created in order to help download the data from the different API before each session. 
+A helper \texttt{CountryDataset} class was created in order to help download the data from the different API before each session and then retrieve it in the necessary way (for a given country, cumulative number or new cases...). 
 The whole code was made to be as clean and maintainable as possible and will probably be deployed as a REST service from the \href{https://deustotech.github.io/DyCon-Blog/}{DyCon platform}.
 The repository contains several notebooks of varying quality where the different experiments are showcased. 
 
