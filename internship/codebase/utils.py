@@ -139,7 +139,7 @@ class CountryDataset:
                  oxford_url = 'https://raw.githubusercontent.com/OxCGRT/covid-policy-tracker/master/data/OxCGRT_latest.csv',
                  hopkins_cases_url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv',
                  hopkins_recovered_url = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv',
-                 indicators_path = '../data/indicators.csv'):
+                 indicators_path = 'https://raw.githubusercontent.com/Kipre/files/master/hosted/indicators.csv'):
         self.oxford = pd.read_csv(oxford_url, parse_dates=['Date'])
         self.hopkins_cases = pd.read_csv(hopkins_cases_url)
         self.hopkins_recovered = pd.read_csv(hopkins_recovered_url)
