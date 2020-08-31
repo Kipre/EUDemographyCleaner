@@ -10,3 +10,5 @@ internship/resources/**
 *.log
 *.toc
 *.out
+*.bbl
+*.blg
